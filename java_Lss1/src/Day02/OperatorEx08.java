@@ -14,6 +14,7 @@ public class OperatorEx08 {
 		
 		System.out.print("정수를 입력하세요 : ");
 		int num = scan.nextInt();
+		// boolean isEven = (num % 2 == 0);
 		String result = num % 2 == 0 ? "짝수" : "홀수";
 		System.out.println(num + "은(는) " + result + "이다. ");
 		
