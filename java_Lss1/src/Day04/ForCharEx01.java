@@ -1,3 +1,4 @@
+package Day04;
 import java.util.Scanner;
 
 public class ForCharEx01 {
