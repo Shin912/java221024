@@ -15,15 +15,15 @@ public class ForEx04 {
 		}
 		System.out.println();
 		
+		for( i = 1; 2*i <= 10 ; i++) {
+			System.out.print( 2*i + " " );
+		}
+		System.out.println();
 		
 		 /* 방법2
 		 * 반복횟수 : i는 2부터 10까지 2씩 증가
 		 * 규칙성 : i를 출력
 		 */ 
-		for( i = 2; 2*i <= 5 ; i++) {
-			System.out.print( i + " " );
-		}
-		System.out.println();
 		
 		for( i = 2; i <= 10; i += 2) {
 			System.out.print( i + " ");
