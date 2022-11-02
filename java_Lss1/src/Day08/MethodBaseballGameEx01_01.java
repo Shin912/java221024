@@ -122,7 +122,7 @@ public class MethodBaseballGameEx01_01 {
 		for(int i = 0; i < size; i++) {
 			arr[i] = scan.nextInt();
 		}
-		return null;
+		return arr;
 	}
 	
 	
