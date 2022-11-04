@@ -1,4 +1,4 @@
-package Day09;
+package Day10;
 
 import java.util.Scanner;
 
@@ -67,6 +67,7 @@ public class BaseballManager {
 		case 1:
 			//컴퓨터가 랜덤으로 숫자 생성
 			int []com = createRandomArray(min, max, size);
+			printArray(com);
 			//사용자가 숫자 입력
 			do {
 				tryCount++;
@@ -78,6 +79,8 @@ public class BaseballManager {
 				
 				printGame(strike, ball);
 			}while(strike != 3);
+			
+			
 			
 			//[new] 회수를 기록(최대 5등) 5등기준으로 횟수가 동일한 경우 
 			// 먼저 플레이한 사용자 기록을 유지
@@ -151,6 +154,15 @@ public class BaseballManager {
 				sameCount++;
 			}
 		} return sameCount;
+	}
+	public static void printArray(int arr[]) {
+		if(arr == null) {
+			return;
+		}
+		for(int i = 0; i<arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
 	}
 	public static int[] createRandomArray(int min, int max, int size) {
 		if(max - min + 1 <= size) {
