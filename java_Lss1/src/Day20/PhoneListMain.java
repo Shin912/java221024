@@ -28,7 +28,7 @@ public class PhoneListMain {
 		 * */
 		
 		ArrayList<PhoneBook> list = new ArrayList<PhoneBook>();
-	
+		
 		int menu = -1;
 		
 		do {
