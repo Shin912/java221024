@@ -487,6 +487,7 @@ public class BoardMain_01 {
 		do {
 			if(category != null)
 				printStr("등록되지 않은 카테고리입니다.");
+			System.out.print("카테고리 : ");
 			category = scan.nextLine();
 		}while (!categoryList.contains(category));
 		System.out.print("제목 : ");
