@@ -45,8 +45,9 @@ class Test{
 	public Test(Test t) {
 		this.num1 = t.num1;
 		this.num2 = t.num2;
+		//필드가 참조변수인 경우, 생성자를 이용하여 복사해야됨
 		this.sub = new Sub(t.sub.getName());
-		//this.sub = new Sub(t.sub);
+		//this.sub = new Sub(t.sub); //기존 생성자에 새로 만듬
 	}
 }
 

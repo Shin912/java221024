@@ -200,7 +200,7 @@ public class BoardMain {
 			insertComentList(boardNum);
 			break;
 		case 2:
-			System.out.println("2. 댓글 확인");
+			insertComentList(boardNum);
 			break;
 		case 3:
 			System.out.println("3. 이전");
