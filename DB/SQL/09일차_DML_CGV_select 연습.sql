@@ -35,11 +35,11 @@ select se_name as 'abd회원이 예매한 영화 올빼미 좌석' from ticketin
 -- 올빼미 12월 20일 13:50 상영에 예매 가능한 좌석을 조회
 select mo_titel as 영화제목, se_name as 좌석명,
 	case
-		when ts_num in null
+		when ts_num is null
         then 'O'
         else 'X'
 	end as 가능여부
- from (select * from screen_schedule where ss_date = '2022-12-20' and ss_time = '13:50') as ss movie
+ from (select * from screen_schedule where ss_date = '2022-12-20' and ss_time = '13:50') as ss
 	join (select * from movie where mo_title like '올빼미')as mo
 		on ss_mo_num = mo_num
 	join cinema 
