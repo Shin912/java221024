@@ -13,12 +13,13 @@
 			min-width: 1190px;
 			font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
 			line-height: 16px; font-size: 12px; color: #202020;
+			height: 1000px;
 		}
 		.inner-container{ 
 			width: 1130px; margin: 0 auto; padding: 0 30px;
 		}
 		.box-search{
-			position: relative;
+			position: relative; height: 160px;
 		}
 		.box-search .box-service{
 			position: absolute; right: -3px; top: 12px;
@@ -40,53 +41,118 @@
 		.box-search .link-jrnaver .icon-jrnaver{
 			width: 60px; height: 10px; background-position: -264px -296px;
 			display: inline-block; vertical-align: top;
-			margin: 3px;
+			margin: 3px; 
 		}
-
 		.box-search .link-jrnaver:hover .icon-jrnaver{
 			background-position: -326px -296px;
 		}
-
 		.box-search .icon-bar{
 			float: left; width: 1px; height: 10px; margin: 3px 7px;
-			background: #e4e9eb;
+			background: #e4e8eb;
 		}
-
-		.box-search .link-happybin{
+		.box-search .link-happybean{
 			float: left; margin-left: 6px;
 		}
-		.box-search .link-happybin .icon-happybin{
-			width: 34px; height: 11px;
-			background-position: -365px -245px;
-			vertical-align: top; display: inline-block; 
-			margin: 3px 3px 2px;
+		.box-search .link-happybean .icon-happybean{
+			width: 34px; height: 11px; background-position: -365px -245px;
+			display: inline-block; vertical-align: top;
+			margin: 3px 3px 2px; 
 		}
-		.box-search .link-happybin:hover .icon-happybin{
+		.box-search .link-happybean:hover .icon-happybean{
 			background-position: -380px -199px;
 		}
+
+		.box-search .box-search-area{
+			position: absolute; top: 50%; left: 238px;
+			margin-top: -28px;
+		}
+		.box-search .form-search{
+			width: 582px; height: 52px; border: 2px solid  #19ce60;
+			border-radius: 2px; 
+		}
+		.box-search .input-search{
+			width: 444px; height: 24px; padding: 13px 15px;
+			margin: 1px; background-color: #fff;
+			font-size: 18px; line-height: 24px; color: #000;
+			font-weight: bold; outline: 0; border: 0;
+		}
+		.box-search .btn-search{
+			position: absolute; top: 0; right: 0; bottom: 0;
+			width: 56px; background-color: #19ce60;
+			border: 0; outline: 0;
+			border-radius: 0 2px 2px 0; cursor: pointer;
+		}
+		.box-search .icon-search{
+			width: 22px; height: 22px; display: inline-block;
+			vertical-align: top; background-position: -420px -24px;
+		}
+		.box-search .btn-auto-complete{
+			position: absolute; top: 0; bottom: 0; right: 64px;
+			width: 22px;
+		}
+		.box-search .icon-auto-complete{
+			display: inline-block; width: 10px; height: 5px;
+			background-position: -158px -151px;
+			position: absolute; top: 50%; left: 50%;
+			margin: -2px 0 0 -5px;
+		}
+		.box-search .btn-kbd{
+			position: absolute; top: 0; bottom: 0; right: 84px;
+			width: 36px;
+		}
+		.box-search .icon-kbd{
+			display: inline-block; width: 20px; height: 12px;
+			background-position: -398px -267px;
+			position: absolute; top: 50%; left: 50%;
+			margin: -6px 0 0 -10px;
+		}
+		.box-search .icon-naver-logo{
+			width: 222px; height: 52px; display: inline-block;
+			vertical-align: top; background-position: 0px -158px;
+		}
+		.box-search .link-naver-logo{
+			position: absolute; top: 50%; left: -9px;
+			margin-top: -32px;
+		}
+		.container-search{
+			border-bottom: 1px solid #e4e8eb;
+		}
+
+		.container-manu{
+			position: relative;
+			box-shadow: 0 1px 3px 0 rgb(0, 0, 0 / 12%);
+		}
+		.container-manu .group-naver{
+			overflow: hidden; position: relative;
+			padding: 11px 270px 11px 0;
+		}
+		.container-manu .list-naver-fix{
+			float: left; font-size: 15px;
+			line-height: 30px; font-weight: 700; color: #000;
+			letter-spacing: -.3px;
+		}
+		.container-manu .icon-mail{
+			display: inline-block; width: 21px; height: 21px;
+			background-position: -420px -73px; vertical-align: top;
+			margin: 3px 9px 0 0;
+		}
+
+		
+
+
 
 		.blind{
 			position: absolute;
 			width: 1px; height: 1px; margin: -1px; overflow: hidden;
 		}
 
-		.img1::after, .icon-jrnaver.img1, .icon-happybin.img1{
-			background: url(img/img1.png);
+		.img1::after, .icon-jrnaver.img1, .icon-happybean.img1,
+		.icon-search.img1,.icon-auto-complete.img1,
+		.icon-kbd.img1, .icon-naver-logo.img1, .icon-mail.img1{
+			background-image: url(img/img1.png);
 			background-size: 442px 428px;
 		}
-
-		.box-search .green-window{
-			width: 582px; height: 52px; border: 2px solid #19ce60;
-			border-radius: 2px; padding: relative;
-		}
-
-		.box-search .input-text{
-			width: 444px; height: 24px; margin: 1px;
-			padding: 13px 15px; background-color: #fff;
-			font-size: 18px; line-height: 24px;
-			font-weight: 700; outline: 0; border: 0;
-		}
-
+		
 	</style>
 </head>
 <body>
@@ -95,28 +161,81 @@
 			<div class="inner-container">
 				<div class="box-search">
 					<div class="box-service">
-						<a href="#" class="link-start-page img1">네이버를 시작페이지로</a>
+						<a href="https://help.naver.com/service/30016/contents/18042?osType=PC&lang=ko" class="link-start-page img1">네이버를 시작페이지로</a>
 						<i class="icon-bar"></i>
-						<a href="#" class="link-jrnaver">
+						<a href="https://jr.naver.com/" class="link-jrnaver">
 							<i class="icon-jrnaver img1"></i>
 							<span class="blind">쥬니어네이버</span>
 						</a>
-						<a href="#" class="link-happybin">
-							<i class="icon-happybin img1"></i>
+						<a href="https://happybean.naver.com/" class="link-happybean">
+							<i class="icon-happybean img1"></i>
 							<span class="blind">해피빈</span>
 						</a>
-						<!-- 우측 상단 서비스 페이지 구현 -->
 					</div>
-					<div class="green-window">
-						<form action="" id="sform" name="sform">
-							<input type="text" class="input-text" placeholder="검색어 입력" maxlength="255">
-							<button></button>
+					<!-- 우측 상단 서비스 페이지 구현 완료 -->
+					<div class="box-search-area">
+						<form action="" class="form-search">
+							<input type="text" class="input-search">
+							<button class="btn-search">
+								<i class="icon-search img1"></i>
+								<span class="blind">검색</span>
+							</button>
+							<a href="#" class="btn-kbd">
+								<i class="icon-kbd img1"></i>
+								<span class="blind">가상키보드</span>
+							</a>
+							<a href="#" class="btn-auto-complete">
+								<i class="icon-auto-complete img1"></i>
+								<span class="blind">자동완성</span>
+							</a>
 						</form>
 					</div>
+					<!-- 검색창 구현 완료 -->
+					<a href="http://www.naver.com" class="link-naver-logo">
+						<i class="icon-naver-logo img1"></i>
+						<span class="blind">네이버 로고</span>
+					</a>
+					<!-- NAVER 로고 구현 완료 -->
 				</div>
 			</div>
 		</div>
-		<div class="container-menu"></div>
+		<!--  -->
+		<div class="container-menu">
+			<div class="inner-container">
+				<div class="group-naver">
+					<ul class="list-naver-fix">
+						<li class="naver_item">
+							<a href="" class="nav">
+								<i class="icon-mail img1"></i>
+								메일
+							</a>
+						</li>
+						<li class="naver_item">
+							<a href="" class="nav"></a>
+						</li>
+						<li class="naver_item">
+							<a href="" class="nav"></a>
+						</li>
+						<li class="naver_item">
+							<a href="" class="nav"></a>
+						</li>
+						<li class="naver_item">
+							<a href="" class="nav"></a>
+						</li>
+						<li class="naver_item">
+							<a href="" class="nav"></a>
+						</li>
+						<li class="naver_item">
+							<a href="" class="nav"></a>
+						</li>
+						<li class="naver_item">
+							<a href="" class="nav"></a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+	</div>
 		<div class="container-body"></div>
 		<footer class="container-footer"></footer>
 	</div>
