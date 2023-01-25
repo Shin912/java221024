@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>예제6</title>
+	<style>
+		li{ font-size: 30px;}
+		.li4{ color: yellow;}
+		.li5{ color: green;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li onclick="toggle1();" class="li1">1</li>
+		<li onclick="toggle2();" class="li2">2</li>
+		<li onclick="toggle3();" class="li3">3</li>
+	</ul>
+	<script>
+		let li1 = document.querySelector('.li1');
+		let li2 = document.querySelector('.li2');
+
+		function toggle1(){
+			li1.classList.toggle('li4');
+		}
+		function toggle2(){
+			li2.classList.toggle('li5');
+		}
+		function toggle3(){
+			
+		}
+	</script>
+</body>
+</html>
