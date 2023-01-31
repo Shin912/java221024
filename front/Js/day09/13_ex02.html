@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		a{text-decoration: none;}
+		ul{list-style: none;}
+		.box-main{
+			width: 200px; height: 50px; margin-top: 30px; border: 3px solid black;
+			
+		}
+		.list-news{
+			width: 600%;
+		}
+		.list-news::after{
+			content: ''; display: block; clear: both;
+		}
+		.item-news{
+			line-height: 50px; padding-left: 50px; box-sizing: border-box;
+			float: left; background: aqua; width: 20%;
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<div class="box-main">
+		<ul class="list-news">
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요1</a>
+			</li>
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요2</a>
+			</li>
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요3</a>
+			</li>
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요4</a>
+			</li>
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요5</a>
+			</li>
+		</ul>
+		<button class="btn prevbtn" style="width: 20px; height: 20px;">&lt;</button>
+		<button class="btn nextbtn" style="width: 20px; height: 20px;">&gt;</button>
+	</div>
+
+	<script>
+		let id = slidList();
+
+		$('.list-news').mouseenter(function(){
+			clearInterval(id);
+		});
+		$('.list-news').mouseleave(function(){
+			id = slidList();
+		});
+
+		function slidList(){
+			return setInterval(function() {
+				if(!$('.item-news').first().is(':animated')){
+					let width = $('.item-news').innerWidth();
+					$('.item-news').first().animate({
+						marginLeft : `-${width}px`
+					},1200, function(){
+						$(this).detach().appendTo('.list-news').attr('style','');
+					});
+				}
+			}, 2000);
+		}
+		$('.nextbtn').click(function(){
+			if(!$('.item-news').first().is(':animated')){
+			let width = $('.item-news').innerWidth();
+					$('.item-news').first().animate({
+						marginLeft : `-${width}px`
+					},500, function(){
+						$(this).detach().appendTo('.list-news').attr('style','');
+					});
+				}
+		});
+		
+	</script>
+</body>
+</html>

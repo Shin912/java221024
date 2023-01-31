@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		a{text-decoration: none;}
+		ul{list-style: none;}
+		.box-main{
+			height: 50px; margin-top: 30px; border: 3px solid black;
+			
+		}
+		.item-news{
+			height: 50px; line-height: 50px; padding-left: 20px;
+			
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box-main">
+		<ul class="list-news">
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요1</a>
+			</li>
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요2</a>
+			</li>
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요3</a>
+			</li>
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요4</a>
+			</li>
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요5</a>
+			</li>
+			<li class="item-news">
+				<a href="#" class="link-news">안녕하세요6</a>
+			</li>
+		</ul>
+
+	</div>
+	<script>		
+		setInterval(function() {			
+			if(!$('.item-news').first().is(':animated')){
+				$('.item-news').first().animate({
+					marginTop : '-=50px'
+				},900, function(){
+					$(this).detach().appendTo('.list-news').attr('style','');
+					//$(this).detach().appendTo('.list-news').removeAttr('style');
+					/*
+					let list = $('.item-news').first().detach();
+					list.animate({
+						marginTop : '0'
+					})
+					list.appendTo('ul');*/
+				});
+			}
+		},1000);
+	</script>
+</body>
+</html>
