@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>회원가입</title>
+	<script src="../js/jquery.min.js"></script>
+</head>
+<body>
+	<form action="" method="get" id="form">
+		<h1>회원가입</h1>
+		아이디<input type="text" name="id"> <br>
+		비밀번호<input type="password" name="pw"> <br>
+		비밀번호확인<input type="password" name="pw2"> <br>
+		성별<br>
+		<input type="checkbox" name="genderM"> 남성 <input type="checkbox" name="genderW"> 여성<br>
+		<button>회원가입</button>
+	</form>
+
+	<script>
+		$('#form').submit(function(){
+			if($('[name=id]').val().length < 5){
+				alert('아이디');
+				return false;
+			}
+			if($('[name=pw]').val() != $('[name=pw2]').val()){
+				alert('비번');
+				return false;
+			}
+			if(!$('[name=genderM').prop('checked')){
+				alert('남성');
+				return false;
+			}else if(!$('[name=genderW').prop('checked')){
+				alert('여성');
+				return false;
+			}
+		})
+	</script>
+</body>
+</html>
