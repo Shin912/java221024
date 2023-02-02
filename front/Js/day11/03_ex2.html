@@ -6,28 +6,41 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<title>Document</title> 
 	<script src="../js/jquery.min.js"></script> 
-	 
+	<script src="../js/jquery.validation.min.js"></script> 
+	<script src="../js/jquery.additional-methods.js"></script> 
 	<style> 
 		.box{ 
 			width: 500px; height: 500px; border: 3px solid black; 
 		} 
 		.innerbox{ 
 			width: 200px; height: 300px; border:  3px solid red; 
-			margin-left: 510px; position: absolute; margin-top: 5px; 
+			position: absolute; 
 		} 
 		.btn{ 
-			width: 50px; height: 30px; margin: 5px; float: right; 
+			width: 50px; height: 30px; position: absolute; 
+			top: 0; right: 0; background-color: #fff; line-height: 50px; border: none; 
+			padding: 0; outline: 0; cursor: pointer; 
 		} 
 		.btn-close{ 
 			position: absolute; margin-left: 150px; 
 			width: 50px; height: 30px; font-size: 20px; 
 			border: 0; background: #fff; outline: 0; cursor: pointer; 
 		} 
+		nav{ 
+			border: 1px solid black; position: relative; 
+			height: 50px; 
+		} 
+		nav::after{ 
+			display: block; content: ''; clear: both; 
+		} 
 	</style> 
 </head> 
 <body> 
 	<div class="box"> 
-		<button class="btn">버튼</button> 
+		<nav> 
+			<button class="btn">버튼</button> 
+ 
+		</nav> 
 		<div class="innerbox"> 
 			<button class="btn-close">&times;</button> 
 		</div> 
@@ -35,8 +48,8 @@
 	<script> 
 		$('.btn').click(function(){ 
 			$('.innerbox').animate({ 
-				marginLeft : '290px' 
-			}); 
+				right : '0' 
+			},1000); 
 		}) 
 		$('.btn-close').click(function(){ 
 			$('.innerbox').animate({ 
