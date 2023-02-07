@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		.container-box{
+			width: 1000px; height: 500px; border: 3px solid black;
+			
+		}
+		.box{
+			height: 500px;  background-color: gray;
+			box-sizing: border-box; margin: 0;
+		}
+		.list-box{
+			list-style: none; width: 100px; height: 100px; border: 3px solid black;
+			float: left; margin: 50px 70px; 
+		}
+		a{ 
+			color: black; line-height: 90px; text-decoration: none; display: block;
+			text-align: center; 
+		}
+		.inner-box{
+			position: absolute; top: 60px; left: 100px;
+			border: 2px solid black; 
+			width: 80%; height: 400px; display: none;
+		}
+		.btn-close{
+			float: right; margin: 10px 10px; 
+		}
+		.backdrop{
+			background: rgba(245,245,245,0.1);
+		}
+	</style>
+</head>
+<body>
+	<div class="container-box">
+		<ul class="box">
+			<li class="list-box">
+				<a href="#" class="item-box">box1</a>
+				<div class="inner-box" style="background-color: red;">
+					<button class="btn-close">X</button>
+				</div>
+			</li>
+			<li class="list-box">
+				<a href="#" class="item-box">box2</a>
+				<div class="inner-box" style="background-color: aqua;">
+					<button class="btn-close">X</button>
+				</div>
+			</li>
+			<li class="list-box">
+				<a href="#" class="item-box">box3</a>
+				<div class="inner-box" style="background-color: blue;">
+					<button class="btn-close">X</button>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<script>
+		$('.item-box').click(function(){
+			$(this).siblings('.inner-box').show();
+			$('.container-box').add('backdrop');
+		})
+		$('.btn-close').click(function(){
+			$('.inner-box').hide();
+			$('.container-box').remove('backdrop');
+		});
+	</script>
+</body>
+</html>
