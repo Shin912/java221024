@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="jquery.min.js"></script>
+	<style>
+		.box-signup{
+			width: 350px; 
+		}
+		.box-left{
+			float: left; 
+		}
+		.box-right{
+			float: right; 
+		}
+		[name=id],[name=pw],[name=pw2]{
+			margin-bottom: 20px;
+		}
+		.box{		
+			margin-bottom: 22px;
+		}
+		.box-bottom{
+			margin-top: 15px;
+			margin-left: 40px;			
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="get" class="box-signup">
+		<div class="box-left">
+			<div class="box">아이디</div>
+			<div class="box">비밀번호</div>
+			<div class="box">비밀번호확인</div>
+			<div class="box">지역</div>
+		</div>
+		<div class="box-right">
+			<input type="text" name="id">
+			<button type="submit" class="btn-checkId">중복확인</button><br>
+			<input type="password" name="pw"><br>
+			<input type="password" name="pw2"><br>
+		<label>
+			서울<input type="radio" name="region" value="서울">
+		</label>
+		<label>
+			부산<input type="radio" name="region" value="부산">
+		</label>
+		<label>
+			대구<input type="radio" name="region" value="대구">
+		</label>
+		<div class="box-bottom">
+			<input type="reset">
+			<button class="btn-signup">회원가입</button>
+		</div>
+		</div>
+	</form>
+
+	<script>
+		$('.btn-checkId').click(function(){
+			let id = $('[name=id]').val();
+			let idRegex = /^[a-z][a-zA-Z0-9!@#]{5,11}$/;
+			if(!idRegex.test(id)){
+				$('[name=id]').focus();
+				$('[name=id]').css('background','red');
+				return false;
+			}else{
+				$('[name=id]').css('background','green');
+				return false;
+			}
+		});
+		$('.btn-signup').click(function(){
+			if($('[name=region]:checked').length == 0){
+				alert('지역을 선택해주세요')
+				return false;
+			}
+		});
+		$('.btn')
+	</script>
+	
+</body>
+</html>
