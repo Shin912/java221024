@@ -10,4 +10,6 @@ public interface MemberService {
 	void emailAuthentication(String me_id, String me_email);
 
 	boolean emailAuthenticationConfirm(MemberOKVO mok);
+
+	MemberVO login(MemberVO member);
 }
