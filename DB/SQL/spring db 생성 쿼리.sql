@@ -18,7 +18,7 @@ CREATE TABLE `Member` (
 DROP TABLE IF EXISTS `member_ok`;
 
 CREATE TABLE `member_ok` (
-	`mo_me_id`	varchar(13)	NOT NULL,
+	`mo_me_id`	varchar(13)	NOT NULL,member_ok
 	`mo_num`	char(6)	NULL,
 	`mo_valid_time`	datetime	NOT NULL
 );
@@ -75,7 +75,7 @@ ALTER TABLE `Member` ADD CONSTRAINT `PK_MEMBER` PRIMARY KEY (
 );
 
 ALTER TABLE `member_ok` ADD CONSTRAINT `PK_MEMBER_OK` PRIMARY KEY (
-	`mo_me_id`member_ok
+	`mo_me_id`
 );
 
 

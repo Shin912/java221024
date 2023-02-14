@@ -18,7 +18,7 @@ CREATE TABLE `Member` (
 DROP TABLE IF EXISTS `member_ok`;
 
 CREATE TABLE `member_ok` (
-	`me_id`	varchar(13)	NOT NULL,
+	`mo_me_id`	varchar(13)	NOT NULL,
 	`mo_num`	char(6)	NULL,
 	`mo_valid_time`	datetime	NOT NULL
 );
@@ -75,12 +75,12 @@ ALTER TABLE `Member` ADD CONSTRAINT `PK_MEMBER` PRIMARY KEY (
 );
 
 ALTER TABLE `member_ok` ADD CONSTRAINT `PK_MEMBER_OK` PRIMARY KEY (
-	`me_id`
+	`mo_me_id`
 );
 
 
 ALTER TABLE `member_ok` ADD CONSTRAINT `FK_Member_TO_member_ok_1` FOREIGN KEY (
-	`me_id`
+	`mo_me_id`
 )
 REFERENCES `Member` (
 	`me_id`
