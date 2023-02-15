@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class="container">
-	<h1>로그인가입</h1>
+	<h1>로그인</h1>
 	<form action="<c:url value='/login'></c:url>" method="post">
 		<div class="form-group">
 			<label for="id">아이디:</label>
@@ -12,7 +12,6 @@
 			<label for="pw">비번:</label>
 			<input type="password" class="form-control" id="pw" name="me_pw">
 		</div>
-
-		<button class="btn btn-outline-success col-12">회원가입</button>
+		<button class="btn btn-outline-success col-12">로그인</button>
 	</form>
 </div>
