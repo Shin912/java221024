@@ -16,7 +16,9 @@ padding: 10px;
 
  th, td {
 	border: 1px solid #bcbcbc; text-align: center; background-color: gray;
-	
+}
+th{
+	width: 40px;
 }
 table{
 	width: 800px; height: 100px; color: #000; 
@@ -29,20 +31,46 @@ table{
 	height: 50px; line-height: 40px;
 }
 .top-box-exceptiongame .left-box{
-	float: left; margin-left: 200px; color: gray; font-style: oblique;
+	margin-left: 65px; color: gray; font-style: oblique; font-size: 12px;
+
 }
-.top-box-exceptiongame .right-box{
-	float: right; 
-}
+
 .btn-winner{
-	width: 30px; background-color: gray; color: gray;
+	width: 20px; background-color: gray; color: gray;
 }
 .btn-save{
-	width: 60px; height: 25px;
+	width: 80px; height: 37px; margin-left: 160px; margin-top: 5px; 
 }
 
 /* 미들 박스 */
 .box-middle{
-	border-radius: 10px; border: 1px solid #000; margin-top: 5%;
+	border-radius: 10px; border: 1px solid #000;
 	margin-left: 170px; width: 900px; height: 900px; background-color: #fff;
+}
+.box-middle .middle-top{
+	height: 50px; text-align: center; line-height: 50px;
+	
+}
+.middle-top .left-team{
+	width: 49.8%; float:left; margin-left: -1px;
+}
+.middle-top .right-team{
+	width: 49.8%; float:right;
+}
+.recode-guide{
+	font-size: 12px; font-style:normal; color: gray; margin: 5px;
+}
+
+.recode-guide input{
+	pointer-events: none; text-align: center; border-radius: 5px; 
+	border: 1px solid gray; 
+}
+
+.middle-recodeContent{
+	border: 1px solid #dae1e6;  border-width: 1px 0;
+	height: 260px;  position: relative;
+}
+.middle-recodeContent li{
+	float: left; position: relative; 
+	width: 10%; text-align: center;
 }
