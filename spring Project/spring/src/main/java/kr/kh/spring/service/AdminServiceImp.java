@@ -20,7 +20,7 @@ public class AdminServiceImp implements AdminService{
 	}
 	@Override
 	public boolean insertBoardType(BoardTypeVO bt) {
-		if(bt == null)
+		if(bt == null || bt.getBt_name().trim().length() == 0)
 			return false;
 		try {
 			return boardDao.insertBoardType(bt);
