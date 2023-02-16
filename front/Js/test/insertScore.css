@@ -4,7 +4,7 @@ a{	text-decoration: none;}
 
 .main-container{
 background-color: #183153; width: 1200px; margin-left: 20%;
-height: 1200px;
+height: 1500px;
 }
 .main-container .box-top{
 padding: 10px;
@@ -43,6 +43,6 @@ table{
 
 /* 미들 박스 */
 .box-middle{
-	border-radius: 10px; border: 1px solid #fff; margin-top: 5%;
-	margin-left: 170px; width: 900px; height: 700px;
+	border-radius: 10px; border: 1px solid #000; margin-top: 5%;
+	margin-left: 170px; width: 900px; height: 900px; background-color: #fff;
 }
