@@ -32,4 +32,11 @@ public class AdminController {
 		mv.setViewName("redirect:/admin/board/type/list");
 		return mv;
 	}
+	@RequestMapping(value="/admin/board/type/update", method=RequestMethod.POST)
+	public ModelAndView boardTypeUpdate(ModelAndView mv, BoardTypeVO bt) {
+		boolean res = adminService.updateBoardType(bt);
+		System.out.println(bt);
+		mv.setViewName("redirect:/admin/board/type/list");
+		return mv;
+	}
 }
