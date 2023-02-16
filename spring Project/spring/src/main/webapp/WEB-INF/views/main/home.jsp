@@ -11,4 +11,3 @@
 	<a href="/spring/ex5?num=2022123001">DB 연결 해제5</a> <br>
 	
 </div>
-${user}
