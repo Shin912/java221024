@@ -65,12 +65,30 @@ table{
 	pointer-events: none; text-align: center; border-radius: 5px; 
 	border: 1px solid gray; 
 }
-
+/* 기록 박스 */
 .middle-recodeContent{
-	border: 1px solid #dae1e6;  border-width: 1px 0;
-	height: 260px;  position: relative;
+	border: 1px solid #dae1e6;
+	height: 256px;  position: relative; 
 }
+.middle-recodeContent .box-line [class^=line-to-]{
+	position: absolute; background-color: #e4e8eb;
+}
+.middle-recodeContent .box-line [class^=line-to-bottom]{
+	left: 0; right: 0; height: 1px;
+}
+.middle-recodeContent .box-line .line-to-bottom1{		top: 22px;		}
+.middle-recodeContent .box-line .line-to-bottom2{		top: 44px;		}
+.middle-recodeContent .box-line .line-to-bottom3{		top: 66px;		}
+.middle-recodeContent .box-line .line-to-bottom4{		top: 86px;		}
+.middle-recodeContent .box-line .line-to-bottom5{		top: 106px;		}
+.middle-recodeContent .box-line .line-to-bottom6{		top: 126px;		}
+.middle-recodeContent .box-line .line-to-bottom7{		top: 147px;		}
+.middle-recodeContent .box-line .line-to-bottom8{		top: 168px;		}
+.middle-recodeContent .box-line .line-to-bottom9{		top: 189px;		}
+.middle-recodeContent .box-line .line-to-bottom10{		top: 212px;		}
+.middle-recodeContent .box-line .line-to-bottom11{		top: 234px;		}
 .middle-recodeContent li{
-	float: left; position: relative; 
+	float: left; position: relative; display: list-item;
 	width: 10%; text-align: center;
 }
+
