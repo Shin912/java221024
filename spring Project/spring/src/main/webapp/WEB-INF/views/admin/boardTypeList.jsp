@@ -81,6 +81,17 @@
 		</tfoot>
 	</table>
 </div>
+<script>
+$('.btn-del').click(function(){
+	let res = confirm('게시글 타입을 삭제하면 해당 게시글 타입에 있는 모든 게시글 들이 삭제됩니다.\n 삭제하시겠습니까?');
+	if(!res)
+		return false;
+	//조상 중에 form태그를 찾아서 action부분을 수정
+	let url = '<c:url value="/admin/board/type/delete"></c:url>';
+	$(this).parents('tr').find('form').attr('action',url);
+});
+
+</script>
 <!-- c:forech를 이용한 1부터 10까지 출력 예제 -->
 <!-- 
 <c:forEach begin="1" end="10" step="1" var="i">
