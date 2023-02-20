@@ -17,6 +17,7 @@ public class HomeController {
 	
 	@Autowired
 	MemberService memberService;
+
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView mv, Integer num) {
@@ -31,13 +32,28 @@ public class HomeController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ModelAndView signupPost(ModelAndView mv, MemberVO member) {
 		boolean res = memberService.signup(member);
-		System.out.println(member);
 		if(res) {
 			//성공했다고 알림 메세지 (추후 구현 예정)
 			mv.setViewName("redirect:/");
 		}else {
 			//실패했다고 알림 메세지(추후 구현 예정)
 			mv.setViewName("redirect:/signup");
+		}
+		return mv;
+	}
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(ModelAndView mv) {
+		mv.setViewName("/member/login");
+		return mv;
+	}
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView loginPost(ModelAndView mv, MemberVO member) {
+		MemberVO user = memberService.login(member);
+		mv.addObject("user", user);
+		if(user != null) {
+			mv.setViewName("/redirect:/");			
+		}else {
+			mv.setViewName("/redirect:/login");
 		}
 		return mv;
 	}
