@@ -59,7 +59,7 @@ public class HomeController {
 		mv.setViewName("/member/login");
 		return mv;
 	}
-	@RequestMapping(value = "/login", method=RequestMethod.POST)
+	@RequestMapping(value = "/login", method=RequestMethod.GET)
 	public ModelAndView loginPost(ModelAndView mv, MemberVO member) {
 		MemberVO user = memberService.login(member);
 		mv.addObject("user", user);
