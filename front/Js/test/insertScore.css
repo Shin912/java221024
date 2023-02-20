@@ -14,12 +14,13 @@ padding: 10px;
 	font-size: 20px;
 }
 
- th, td {
+.scoreborad tr, td {
 	border: 1px solid #bcbcbc; text-align: center; background-color: gray;
 }
-th{
-	width: 40px;
+.top-table .inning{
+	width: 25px;
 }
+
 table{
 	width: 800px; height: 100px; color: #000; 
 	margin-left: 200px; margin-top: 20px;
@@ -28,7 +29,7 @@ table{
 	margin-top: 5px; width: 1100px;	text-align: center;
 }
 .exception-box{
-	height: 50px; line-height: 40px;
+	height: 50px; line-height: 40px; margin-left: 100px;
 }
 .top-box-exceptiongame .left-box{
 	margin-left: 65px; color: gray; font-style: oblique; font-size: 12px;
@@ -38,8 +39,8 @@ table{
 .btn-winner{
 	width: 20px; background-color: gray; color: gray;
 }
-.btn-save{
-	width: 80px; height: 37px; margin-left: 160px; margin-top: 5px; 
+.exception-box .btn-save{
+	width: 100px; height: 37px; margin-left: 200px; margin-top: 5px; 
 }
 
 /* 미들 박스 */
@@ -49,7 +50,9 @@ table{
 }
 .box-middle .middle-top{
 	height: 50px; text-align: center; line-height: 50px;
-	
+}
+.box-middle .middle-top div+div{
+	border-left: 1px solid gray;
 }
 .middle-top .left-team{
 	width: 49.8%; float:left; margin-left: -1px;
@@ -59,16 +62,27 @@ table{
 }
 .recode-guide{
 	font-size: 12px; font-style:normal; color: gray; margin: 5px;
+	
 }
 
 .recode-guide input{
 	pointer-events: none; text-align: center; border-radius: 5px; 
-	border: 1px solid gray; 
+	border: 1px solid gray;  margin-left: 30px; 
 }
+.recode-guide input:nth-child(1){
+	margin-left: 15px;
+}
+.recode-guide input:nth-child(10){
+	margin-left: 40px;
+}
+
+
+
+
 /* 기록 박스 */
 .middle-recodeContent{
-	border: 1px solid #dae1e6;
-	height: 256px;  position: relative; 
+	border: 1px solid #dae1e6; font-size: 13px;
+	height: 205px;  position: relative; color: #000;
 }
 .middle-recodeContent .box-line [class^=line-to-]{
 	position: absolute; background-color: #e4e8eb;
@@ -76,19 +90,68 @@ table{
 .middle-recodeContent .box-line [class^=line-to-bottom]{
 	left: 0; right: 0; height: 1px;
 }
-.middle-recodeContent .box-line .line-to-bottom1{		top: 22px;		}
-.middle-recodeContent .box-line .line-to-bottom2{		top: 44px;		}
-.middle-recodeContent .box-line .line-to-bottom3{		top: 66px;		}
-.middle-recodeContent .box-line .line-to-bottom4{		top: 86px;		}
-.middle-recodeContent .box-line .line-to-bottom5{		top: 106px;		}
-.middle-recodeContent .box-line .line-to-bottom6{		top: 126px;		}
-.middle-recodeContent .box-line .line-to-bottom7{		top: 147px;		}
-.middle-recodeContent .box-line .line-to-bottom8{		top: 168px;		}
-.middle-recodeContent .box-line .line-to-bottom9{		top: 189px;		}
-.middle-recodeContent .box-line .line-to-bottom10{		top: 212px;		}
-.middle-recodeContent .box-line .line-to-bottom11{		top: 234px;		}
+.middle-recodeContent .box-line .line-to-bottom1{		top: 17px;		}
+.middle-recodeContent .box-line .line-to-bottom2{		top: 34px;		}
+.middle-recodeContent .box-line .line-to-bottom3{		top: 51px;		}
+.middle-recodeContent .box-line .line-to-bottom4{		top: 68px;		}
+.middle-recodeContent .box-line .line-to-bottom5{		top: 85px;		}
+.middle-recodeContent .box-line .line-to-bottom6{		top: 102px;		}
+.middle-recodeContent .box-line .line-to-bottom7{		top: 119px;		}
+.middle-recodeContent .box-line .line-to-bottom8{		top: 135px;		}
+.middle-recodeContent .box-line .line-to-bottom9{		top: 152px;		}
+.middle-recodeContent .box-line .line-to-bottom10{		top: 169px;		}
+.middle-recodeContent .box-line .line-to-bottom11{		top: 186px;		}
 .middle-recodeContent li{
 	float: left; position: relative; display: list-item;
-	width: 10%; text-align: center;
+	width: 10%; text-align: center; cursor: pointer;
+}
+.middle-recodeContent .box-line [class^=line-to-right]{
+	top: 0; bottom: 0; width: 1px;
+}
+.middle-recodeContent .box-line .line-to-right1{	left: 90px;	}
+.middle-recodeContent .box-line .line-to-right2{	left: 180px;	}
+.middle-recodeContent .box-line .line-to-right3{	left: 270px;	}
+.middle-recodeContent .box-line .line-to-right4{	left: 360px;	}
+.middle-recodeContent .box-line .line-to-right5{	left: 450px;	}
+.middle-recodeContent .box-line .line-to-right6{	left: 540px;	}
+.middle-recodeContent .box-line .line-to-right7{	left: 630px;	}
+.middle-recodeContent .box-line .line-to-right8{	left: 720px;	}
+.middle-recodeContent .box-line .line-to-right9{	left: 810px;	}
+
+.middle-recodeTitle{
+	height: 30px; line-height: 30px; font-size: 12px;
+	color: gray;
+}
+.middle-recodeTitle div{
+	float: left; margin-left: 10px;
+}
+.middle-recodeTitle div:nth-child(2){	margin-left: 40px;	}
+.middle-recodeTitle div:nth-child(3){	margin-left: 44px;	}
+.middle-recodeTitle div:nth-child(4){	margin-left: 45px;	}
+.middle-recodeTitle div:nth-child(5){	margin-left: 52px;	}
+.middle-recodeTitle div:nth-child(6){	margin-left: 49px;	}
+.middle-recodeTitle div:nth-child(7){	margin-left: 50px;	}
+.middle-recodeTitle div:nth-child(8){	margin-left: 50px;	}
+.middle-recodeTitle div:nth-child(9){	margin-left: 48px;	}
+.middle-recodeTitle div:nth-child(10){	margin-left: 50px;	}
+.middle-recodeTitle div:nth-child(11){	margin-left: 48px;	}
+.middle-recodeTitle div:nth-child(12){	margin-left: 50px;	}
+.middle-recodeTitle div:nth-child(13){	margin-left: 32px;	}
+.middle-recodeTitle div:nth-child(14){	margin-left: 7px;	}
+.middle-recodeTitle div:nth-child(15){	margin-left: 6px;	}
+.middle-recodeTitle div:nth-child(16){	margin-left: 6px;	}
+.middle-recodeTitle div:nth-child(17){	margin-left: 5px;	}
+.middle-recodePlayer{
+	background-color: #f4f4f4; margin-left: 3px;
+}
+.middle-recodePlayer input{
+	height: 16px; text-align: center; font-size: 11px;
+}
+.middle-recodePlayer select{
+	font-size: 12px;
+}
+.recodeSave .btn-save{
+	float: right; width: 100px; height: 37px; 
+	margin: 10px 75px; 
 }
 
