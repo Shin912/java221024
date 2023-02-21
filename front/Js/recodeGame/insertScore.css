@@ -12,13 +12,13 @@ height: 1500px;
 padding: 10px;
 }
 .box-top .top-title{
-	height: 30px; color: aliceblue;  text-align: center;
+	height: 50px; color: aliceblue;  text-align: center;
 	font-size: 20px; margin-top: 20px;
 }
 
 /* 스코어보드 테이블 */
 .box-score{
-	height: 100px; margin: 30px 70px 0;
+	height: 120px; margin: 10px 70px 0;
 }
 .box-score .tbl{
 	width: 100%; border-top: 1px solid #929292; text-align: center;
@@ -33,48 +33,46 @@ padding: 10px;
 }
 .box-score .tbl td{
 	padding: 10px 0; background: 0 0; border-bottom: 1px solid #dcdcdc;
-	font-family: ngb; font-size: 15px;
+	font-family: ngb; font-size: 15px; text-align: center;
 }
 
 .box-score [class^=score-]{
 	float: left;
 }
 .box-score .data1{
-	width: 230px;
+	width: 215px; border-right: 1px solid #dcdcdc;
 }
 .box-score .data2{
-	width: 450px;
-}
-.box-score .data2 thead{
-	margin-left: 20px;
+	width: 460px; border-right: 1px solid #dcdcdc;
 }
 .box-score .data3{
-	width: 158px;
+	width: 155px;
 }
 
 
 
 .top-box-exceptiongame{
-	margin-top: 20px; width: 1100px;	text-align: center;
+	width: 900px;	text-align: center;
 }
 .exception-box{
-	height: 50px; line-height: 40px; 
+	height: 40px; line-height: 30px; 
 }
 .top-box-exceptiongame .left-box{
 	color: gray; font-style: oblique; font-size: 12px;
+	margin-left: 90px;
 }
 
-.btn-winner{
+.btn-exceptiongame{
 	width: 20px; background-color: gray; color: gray;
 }
 .exception-box .btn-save{
-	width: 100px; height: 37px; margin-left: 100px; margin-top: 5px; 
+	width: 100px; height: 37px; margin-left: 180px; margin-top: 10px; 
 }
 
 /* 미들 박스 */
 .box-middle{
 	border-radius: 10px; border: 1px solid #000;
-	margin: 20px 50px; width: 900px; height: 900px; background-color: #fff;
+	margin: 50px 50px; width: 900px; height: 900px; background-color: #fff;
 }
 .box-middle .middle-top{
 	height: 50px; text-align: center; line-height: 50px;
@@ -94,23 +92,15 @@ padding: 10px;
 
 .recode-guide input{
 	pointer-events: none; text-align: center; border-radius: 5px; 
-	border: 1px solid gray;  margin-left: 30px; 
+	border: 1px solid gray; margin-left: 26px;
 }
-.recode-guide input:nth-child(1){
-	margin-left: 15px;
-}
-.recode-guide input:nth-child(10){
-	margin-left: 40px;
-}
-
-
-
+.recode-guide input:nth-child(1){	margin-left: 10px;}
 
 
 /* 기록 내용 */
 .middle-recodeContent{
-	border-top: 1px solid #dae1e6; font-size: 13px; padding-bottom: 10px;
-	height: 227px;  position: relative; color: #000; 
+	border-top: 1px solid #dae1e6; font-size: 13px; 
+	height: 240px;  position: relative; color: #000; 
 }
 .middle-recodeContent li{
 	float: left; position: relative; display: list-item;
