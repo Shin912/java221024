@@ -3,50 +3,78 @@ ul,ol{ list-style: none;}
 a{	text-decoration: none;}
 
 .main-container{
-background-color: #183153; width: 1200px; margin-left: 20%;
+background-color: #183153; width: 1000px; margin:0 auto;
 height: 1500px;
 }
+
+/* 기록등록 메인 타이틀 */
 .main-container .box-top{
 padding: 10px;
 }
 .box-top .top-title{
 	height: 30px; color: aliceblue;  text-align: center;
-	font-size: 20px;
+	font-size: 20px; margin-top: 20px;
 }
 
-.scoreborad tr, td {
-	border: 1px solid #bcbcbc; text-align: center; background-color: gray;
+/* 스코어보드 테이블 */
+.box-score{
+	height: 100px; margin: 30px 70px 0;
 }
-.top-table .inning{
-	width: 25px;
+.box-score .tbl{
+	width: 100%; border-top: 1px solid #929292; text-align: center;
+	vertical-align: middle; border-collapse: collapse; background-color: gray;
+}
+.box-score .tbl thead th{
+	padding: 5px 0; font-weight: 550;
+}
+.box-score .tbl th{
+	background: 0 0; border-bottom: 1px solid #dcdcdc; width: 50px;
+	font-family: ngb; font-size: 18px; color: #121212;
+}
+.box-score .tbl td{
+	padding: 10px 0; background: 0 0; border-bottom: 1px solid #dcdcdc;
+	font-family: ngb; font-size: 15px;
 }
 
-table{
-	width: 800px; height: 100px; color: #000; 
-	margin-left: 200px; margin-top: 20px;
+.box-score [class^=score-]{
+	float: left;
 }
+.box-score .data1{
+	width: 230px;
+}
+.box-score .data2{
+	width: 450px;
+}
+.box-score .data2 thead{
+	margin-left: 20px;
+}
+.box-score .data3{
+	width: 158px;
+}
+
+
+
 .top-box-exceptiongame{
-	margin-top: 5px; width: 1100px;	text-align: center;
+	margin-top: 20px; width: 1100px;	text-align: center;
 }
 .exception-box{
-	height: 50px; line-height: 40px; margin-left: 100px;
+	height: 50px; line-height: 40px; 
 }
 .top-box-exceptiongame .left-box{
-	margin-left: 65px; color: gray; font-style: oblique; font-size: 12px;
-
+	color: gray; font-style: oblique; font-size: 12px;
 }
 
 .btn-winner{
 	width: 20px; background-color: gray; color: gray;
 }
 .exception-box .btn-save{
-	width: 100px; height: 37px; margin-left: 200px; margin-top: 5px; 
+	width: 100px; height: 37px; margin-left: 100px; margin-top: 5px; 
 }
 
 /* 미들 박스 */
 .box-middle{
 	border-radius: 10px; border: 1px solid #000;
-	margin-left: 170px; width: 900px; height: 900px; background-color: #fff;
+	margin: 20px 50px; width: 900px; height: 900px; background-color: #fff;
 }
 .box-middle .middle-top{
 	height: 50px; text-align: center; line-height: 50px;
@@ -62,7 +90,6 @@ table{
 }
 .recode-guide{
 	font-size: 12px; font-style:normal; color: gray; margin: 5px;
-	
 }
 
 .recode-guide input{
@@ -79,10 +106,15 @@ table{
 
 
 
-/* 기록 박스 */
+
+/* 기록 내용 */
 .middle-recodeContent{
-	border: 1px solid #dae1e6; font-size: 13px;
-	height: 205px;  position: relative; color: #000;
+	border-top: 1px solid #dae1e6; font-size: 13px; padding-bottom: 10px;
+	height: 227px;  position: relative; color: #000; 
+}
+.middle-recodeContent li{
+	float: left; position: relative; display: list-item;
+	width: 10%; height: 20px; text-align: center;
 }
 .middle-recodeContent .box-line [class^=line-to-]{
 	position: absolute; background-color: #e4e8eb;
@@ -90,21 +122,19 @@ table{
 .middle-recodeContent .box-line [class^=line-to-bottom]{
 	left: 0; right: 0; height: 1px;
 }
-.middle-recodeContent .box-line .line-to-bottom1{		top: 17px;		}
-.middle-recodeContent .box-line .line-to-bottom2{		top: 34px;		}
-.middle-recodeContent .box-line .line-to-bottom3{		top: 51px;		}
-.middle-recodeContent .box-line .line-to-bottom4{		top: 68px;		}
-.middle-recodeContent .box-line .line-to-bottom5{		top: 85px;		}
-.middle-recodeContent .box-line .line-to-bottom6{		top: 102px;		}
-.middle-recodeContent .box-line .line-to-bottom7{		top: 119px;		}
-.middle-recodeContent .box-line .line-to-bottom8{		top: 135px;		}
-.middle-recodeContent .box-line .line-to-bottom9{		top: 152px;		}
-.middle-recodeContent .box-line .line-to-bottom10{		top: 169px;		}
-.middle-recodeContent .box-line .line-to-bottom11{		top: 186px;		}
-.middle-recodeContent li{
-	float: left; position: relative; display: list-item;
-	width: 10%; text-align: center; cursor: pointer;
-}
+.middle-recodeContent .box-line .line-to-bottom1{		top: 18px;		}
+.middle-recodeContent .box-line .line-to-bottom2{		top: 38px;		}
+.middle-recodeContent .box-line .line-to-bottom3{		top: 58px;		}
+.middle-recodeContent .box-line .line-to-bottom4{		top: 78px;		}
+.middle-recodeContent .box-line .line-to-bottom5{		top: 98px;		}
+.middle-recodeContent .box-line .line-to-bottom6{		top: 118px;		}
+.middle-recodeContent .box-line .line-to-bottom7{		top: 138px;		}
+.middle-recodeContent .box-line .line-to-bottom8{		top: 158px;		}
+.middle-recodeContent .box-line .line-to-bottom9{		top: 178px;		}
+.middle-recodeContent .box-line .line-to-bottom10{		top: 198px;		}
+.middle-recodeContent .box-line .line-to-bottom11{		top: 218px;		}
+.middle-recodeContent .box-line .line-to-bottom12{		top: 238px;		}
+
 .middle-recodeContent .box-line [class^=line-to-right]{
 	top: 0; bottom: 0; width: 1px;
 }
@@ -120,7 +150,7 @@ table{
 
 .middle-recodeTitle{
 	height: 30px; line-height: 30px; font-size: 12px;
-	color: gray;
+	color: gray; 
 }
 .middle-recodeTitle div{
 	float: left; margin-left: 10px;
@@ -141,15 +171,11 @@ table{
 .middle-recodeTitle div:nth-child(15){	margin-left: 6px;	}
 .middle-recodeTitle div:nth-child(16){	margin-left: 6px;	}
 .middle-recodeTitle div:nth-child(17){	margin-left: 5px;	}
-.middle-recodePlayer{
+
+.middle-recode-board{
 	background-color: #f4f4f4; margin-left: 3px;
 }
-.middle-recodePlayer input{
-	height: 16px; text-align: center; font-size: 11px;
-}
-.middle-recodePlayer select{
-	font-size: 12px;
-}
+
 .recodeSave .btn-save{
 	float: right; width: 100px; height: 37px; 
 	margin: 10px 75px; 
