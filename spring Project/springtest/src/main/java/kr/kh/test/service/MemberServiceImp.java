@@ -75,7 +75,7 @@ public class MemberServiceImp implements MemberService {
 		return true;
 	}
 	private void sendEmail(String title, String content, String email) {
-		String setfrom = "stajun@gmail.com";         
+		String setfrom = "insp1078@gmail.com";         
 	    
 		try {
 	        MimeMessage message = mailSender.createMimeMessage();
@@ -94,7 +94,7 @@ public class MemberServiceImp implements MemberService {
 	}
 
 	private String getHref(MemberOKVO mok) {
-		String href = contextPath+"/email/authentication?mo_me_id="
+		String href = "http://localhost:8080"+contextPath+"/email/authentication?mo_me_id="
 			+mok.getMo_me_id() + "&mo_num=" + mok.getMo_num();
 		return href;
 	}
@@ -132,5 +132,16 @@ public class MemberServiceImp implements MemberService {
 		if(passwordEncoder.matches(member.getMe_pw(), user.getMe_pw()))
 			return user;
 		return null;
+	}
+
+	@Override
+	public boolean emailAuthentication(MemberOKVO mok) {
+		MemberOKVO user = memberDao.selectMemberOK(mok);
+		if(user != null) {
+			memberDao.deleteMemberOK(mok);
+			memberDao.updateMemberOK(mok.getMo_me_id(), 1);
+			return true;
+		}
+		return false;
 	}
 }

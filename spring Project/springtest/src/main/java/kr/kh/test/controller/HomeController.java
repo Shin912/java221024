@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.kh.test.service.MemberService;
+import kr.kh.test.vo.MemberOKVO;
 import kr.kh.test.vo.MemberVO;
 
 @Controller
@@ -60,6 +61,17 @@ public class HomeController {
 	public ModelAndView logout(ModelAndView mv, HttpSession session) {
 		if(session != null)
 			session.removeAttribute("user");
+		mv.setViewName("redirect:/");
+		return mv;
+	}
+	@RequestMapping(value = "/email/authentication", method = RequestMethod.GET)
+	public ModelAndView email(ModelAndView mv, MemberOKVO mok) {
+		if(memberService.emailAuthentication(mok)) {
+			
+		}else {
+			
+		}
+			
 		mv.setViewName("redirect:/");
 		return mv;
 	}

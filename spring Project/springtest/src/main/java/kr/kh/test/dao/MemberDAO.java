@@ -15,4 +15,10 @@ public interface MemberDAO {
 
 	void insertMemberOK(@Param("mok")MemberOKVO mok);
 
+	MemberOKVO selectMemberOK(@Param("mok")MemberOKVO mok);
+
+	void deleteMemberOK(@Param("mok")MemberOKVO mok);
+
+	void updateMemberOK(@Param("me_id")String me_id,@Param("me_authority")int me_authority);
+
 }
