@@ -49,10 +49,14 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView loginPost(ModelAndView mv,MemberVO member) {
 		MemberVO user = memberService.login(member);
-		mv.addObject("user", user);
-		if(user != null) {
+		// 인증한 회원들만 로그인 하도록
+		if(user != null && user.getMe_authority() > 0) {
+			mv.addObject("user", user);
 			mv.setViewName("redirect:/");
 		}else {
+			if(user != null) {
+				//인증 안된 회원이라고 알려주는 메세지
+			}
 			mv.setViewName("redirect:/login");
 		}
 		return mv;
