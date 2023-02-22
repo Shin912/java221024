@@ -22,7 +22,7 @@ padding: 10px;
 }
 .box-score .tbl{
 	width: 100%; border-top: 1px solid #929292; text-align: center;
-	vertical-align: middle; border-collapse: collapse; background-color: gray;
+	vertical-align: middle; border-collapse: collapse; background-color: #929292;
 }
 .box-score .tbl thead th{
 	padding: 5px 0; font-weight: 550;
@@ -46,7 +46,7 @@ padding: 10px;
 	width: 460px; border-right: 1px solid #dcdcdc;
 }
 .box-score .data3{
-	width: 155px;
+	width: 160px;
 }
 
 
@@ -76,12 +76,27 @@ padding: 10px;
 }
 .box-middle .middle-top{
 	height: 50px; text-align: center; line-height: 50px;
+	background-color: #c5c5c5; color: #505050;
+}
+.box-middle .middle-top span{
+	cursor: pointer; 
 }
 .box-middle .middle-top div+div{
 	border-left: 1px solid gray;
 }
+.box-middle .middle-top .left-team[aria-selected=true]{
+	background-color: white; border-radius: 8px 0 0 0; padding-right: 1.5px;
+	font-weight: 800; color: #121212; 
+}
+
+.box-middle .middle-top .right-team[aria-selected=true]{
+	background-color: white; border-radius: 0 8px 0 0;
+	font-weight: 800; color: #121212; 
+}
+
+
 .middle-top .left-team{
-	width: 49.8%; float:left; margin-left: -1px;
+	width: 49.9%; float:left;
 }
 .middle-top .right-team{
 	width: 49.8%; float:right;
@@ -105,6 +120,11 @@ padding: 10px;
 .middle-recodeContent li{
 	float: left; position: relative; display: list-item;
 	width: 10%; height: 20px; text-align: center;
+}
+.middle-recodeContent li .btn-content{
+	background-color: red; width: 23px; height: 14px;
+	border: 0.1px solid #929292; border-radius: 3px; color: #000; 
+	text-align: center; cursor: pointer; 
 }
 .middle-recodeContent .box-line [class^=line-to-]{
 	position: absolute; background-color: #e4e8eb;
