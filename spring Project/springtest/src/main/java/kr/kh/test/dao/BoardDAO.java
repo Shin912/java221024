@@ -10,4 +10,10 @@ public interface BoardDAO {
 
 	ArrayList<BoardTypeVO> selectAllBoardType(@Param("authority")int authority);
 
+	BoardTypeVO selectBoardTypeByName(@Param("bt_name")String bt_name);
+
+	int insertBoardType(@Param("bt")BoardTypeVO bt);
+
+	boolean updateBoardType(@Param("bt")BoardTypeVO bt);
+
 }
