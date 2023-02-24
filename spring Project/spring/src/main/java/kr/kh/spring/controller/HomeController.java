@@ -1,5 +1,11 @@
 package kr.kh.spring.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -59,7 +65,7 @@ public class HomeController {
 		mv.setViewName("/member/login");
 		return mv;
 	}
-	@RequestMapping(value = "/login", method=RequestMethod.GET)
+	@RequestMapping(value = "/login", method=RequestMethod.POST)
 	public ModelAndView loginPost(ModelAndView mv, MemberVO member) {
 		MemberVO user = memberService.login(member);
 		mv.addObject("user", user);
@@ -67,6 +73,23 @@ public class HomeController {
 			mv.setViewName("redirect:/");
 		else
 			mv.setViewName("redirect:/login");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/logout", method=RequestMethod.GET)
+	public ModelAndView logout(ModelAndView mv, 
+			HttpSession session,
+			HttpServletResponse response) throws IOException {
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user != null) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('로그아웃 되었습니다.');location.href='/spring/'</script>");
+			out.flush();
+		}
+		//세션에 있는 회원 정보를 삭제
+		session.removeAttribute("user");
+		mv.setViewName("redirect:/");
 		return mv;
 	}
 	

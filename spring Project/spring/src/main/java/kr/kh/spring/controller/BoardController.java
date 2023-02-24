@@ -42,7 +42,9 @@ public class BoardController {
 	@RequestMapping(value = "/board/insert", method=RequestMethod.POST)
 	public ModelAndView boardInsertPost(ModelAndView mv,BoardVO board, 
 			HttpSession session) {
+		//세션에 있는 회원 정보 가져옴. 작성자에 넣어주려고
 		MemberVO user = (MemberVO)session.getAttribute("user");
+		//게시글 정보와 회원 정보를 이용하여 게시글 등록하라고 시킴
 		boardService.insertBoard(board, user);
 		mv.setViewName("redirect:/board/list");
 		return mv;
