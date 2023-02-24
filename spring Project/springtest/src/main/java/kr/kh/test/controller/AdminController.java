@@ -63,4 +63,20 @@ public class AdminController {
 		mv.setViewName("/admin/board/type/list");
 		return mv;
 	}
+	@RequestMapping(value = "/admin/board/type/delete", method = RequestMethod.GET)
+	public ModelAndView adminBoardTypeDelete(ModelAndView mv, BoardTypeVO bt,
+			HttpServletResponse response, HttpServletRequest request) {
+		boolean isDelete = adminService.deleteBoardType(bt.getBt_num());
+		if(isDelete) {
+			//화면에 게시판 삭제 성공 메세지 전송
+			MessageUtils.alertAndMovePage(response, "게시판 삭제 성공", 
+					request.getContextPath(), "/admin/board/type/list");
+		}else {
+			//화면에 게시판 삭제 실패 메세지 전송
+			MessageUtils.alertAndMovePage(response, "이미 삭제된 게시판이거나 없는 게시판입니다.", 
+					request.getContextPath(), "/admin/board/type/list");
+		}
+		mv.setViewName("redirect:/admin/board/type/list");
+		return mv;
+	}
 }
