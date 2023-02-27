@@ -84,4 +84,12 @@ public class BoardServiceImp implements BoardService {
 	public ArrayList<BoardVO> getBoardList() {
 		return boardDao.selectBoardList();
 	}
+	@Override
+	public BoardVO getBoard(int bo_num) {
+		return boardDao.selectBoard(bo_num);
+	}
+	@Override
+	public ArrayList<FileVO> getFileList(int bo_num) {
+		return boardDao.selectFileist(bo_num);
+	}
 }
