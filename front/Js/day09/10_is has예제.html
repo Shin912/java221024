@@ -24,6 +24,9 @@
 		has('선택자')
 			- 요소 안에 '선택자'가 있으면 해당 요소들을 반환
 		*/
+		$('.box span').click(function(){
+			alert('클릭');
+		})
 		$('.btn-is').click(function(){
 			alert($('[name=fruit').is(':checked'));
 			/*

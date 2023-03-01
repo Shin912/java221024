@@ -188,6 +188,13 @@ padding: 10px;
 
 .middle-footer .btn-save{
 	float: right; width: 100px; height: 37px; 
-	margin: 10px 75px; 
+	margin: 0 40px; 
 }
 
+.middle-footer{
+	margin-top: 30px;
+}
+
+.tbl-addPlayer tbody td{
+	margin-left: 5px;
+}
