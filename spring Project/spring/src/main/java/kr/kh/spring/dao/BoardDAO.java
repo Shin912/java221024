@@ -27,7 +27,7 @@ public interface BoardDAO {
 
 	BoardVO selectBoard(@Param("bo_num")int bo_num);
 
-	ArrayList<FileVO> selectFileist(@Param("bo_num")int bo_num);
+	ArrayList<FileVO> selectFileList(@Param("bo_num")int bo_num);
 
 	void updateBoardViews(@Param("bo_num")int bo_num);
 
@@ -38,5 +38,9 @@ public interface BoardDAO {
 	void insertLikes(@Param("li")LikesVO likesVo);
 
 	void updateLikes(@Param("li")LikesVO likesVo);
+
+	int deleteBoard(@Param("bo_num")int bo_num);
+
+	void deleteFile(@Param("file")FileVO file);
 
 }

@@ -52,16 +52,35 @@
 		</div>
 	</div>
 	<div class="pagination justify-content-center" style="margin:20px 0">
-		<button class="btn btn-outline-success btn-up">추천</button>
-		<button class="btn btn-outline-danger btn-up ml-2">비추천</button>
+		<c:if test="${likes != null && likes.li_state == 1}">
+			<button class="btn btn-success btn-up">추천</button>
+		</c:if>
+		<c:if test="${likes == null || likes.li_state != 1}">
+			<button class="btn btn-outline-success btn-up">추천</button>
+		</c:if>
+		<c:if test="${likes != null && likes.li_state == -1}">
+			<button class="btn btn-danger btn-down ml-2">비추천</button>
+		</c:if>
+		<c:if test="${likes == null || likes.li_state != -1}">
+			<button class="btn btn-outline-danger btn-down ml-2">비추천</button>
+		</c:if>
 	</div>
+	<c:if test="${user != null && user.me_id == board.bo_me_id}">
+		<div>
+			<a href="<c:url value='/board/update/${board.bo_num}'></c:url>">
+				<button class="btn btn-outline-primary btn-update">수정</button>
+			</a>
+			<a href="<c:url value='/board/delete/${board.bo_num}'></c:url>">
+				<button class="btn btn-outline-primary btn-delete">삭제</button>
+			</a>
+		</div>
+	</c:if>
 </div>
-
 <script>
 $(function(){
 	$('.btn-up, .btn-down').click(function(){
 		if('${user.me_id}' == ''){
-			let res = confirm('로그인한 회원만 추천을 할 수 있습니다.\n로그인 페이지로 이동하시겠습니까?');
+			let res = confirm('로그인한 회원만 추천을 할 수 있습니다.\n로그인 페이지로 이동하겠습니까?');
 			if(res){
 				location.href="<c:url value='/login'></c:url>"
 			}
@@ -83,10 +102,26 @@ $(function(){
 	        //서버에 보내는 데이터 타입
 	        //contentType:"application/json; charset=UTF-8",
 	        success : function(data){
-	            console.log(data);
+	        	//추천 버튼 초기 상태로
+	        	$('.btn-up').removeClass('btn-success').addClass('btn-outline-success');
+	        	//비추천 버튼 초기 상태로
+	        	$('.btn-down').removeClass('btn-danger').addClass('btn-outline-danger');
+	            if(data.res == 1){
+	            	alert('추천을 했습니다.');
+	            	$('.btn-up').addClass('btn-success').removeClass('btn-outline-success');
+	            }else if(data.res == -1){
+	            	alert('비추천을 했습니다.');
+	            	$('.btn-down').addClass('btn-danger').removeClass('btn-outline-danger');
+	            }else{
+	            	if(li_state == 1){
+	            		alert('추천을 취소했습니다.')
+	            	}else{
+	            		alert('비추천을 취소했습니다.')
+	            	}
+	            }
 	        }
 	    });
-		//
+		
 	});
-});
+})
 </script>
