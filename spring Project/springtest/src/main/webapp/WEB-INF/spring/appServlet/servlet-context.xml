@@ -40,6 +40,12 @@
 		class="kr.kh.test.interceptor.LoginInterceptor"></beans:bean>
 	<beans:bean id="adminInterceptor" 
 		class="kr.kh.test.interceptor.AdminInterceptor"></beans:bean>
+		
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <!-- 업로드 최대 크기 10Mb -->
+	    <beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean>
+		
 	<!-- 어느 url에서 인터셉터들이 동작할 건지를 설정 -->
 	<interceptors>
 	    <interceptor>

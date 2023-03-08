@@ -6,22 +6,25 @@ import org.apache.ibatis.annotations.Param;
 
 import kr.kh.test.vo.BoardTypeVO;
 import kr.kh.test.vo.BoardVO;
+import kr.kh.test.vo.FileVO;
 import kr.kh.test.vo.MemberVO;
 
 public interface BoardDAO {
 
-	ArrayList<BoardTypeVO> selectAllBoardType(@Param("authority")int authority);
+	ArrayList<BoardTypeVO> selectBoardTypeList(@Param("authority")int adminAuthority);
 
 	BoardTypeVO selectBoardTypeByName(@Param("bt_name")String bt_name);
 
 	int insertBoardType(@Param("bt")BoardTypeVO bt);
 
-	boolean updateBoardType(@Param("bt")BoardTypeVO bt);
+	int updateBoardType(@Param("bt")BoardTypeVO bt);
 
-	boolean deleteBoardType(@Param("bt_num")int bt_num);
+	boolean deleteBoardType(@Param("bt_num")Integer bt_num);
 
-	ArrayList<BoardTypeVO> selectBoardTypeByName(@Param("me")MemberVO user);
+	int insertBoard(@Param("bo")BoardVO board);
 
-	void insertBoard(@Param("bo")BoardVO board);
+	void insertFile(@Param("fi")FileVO fileVo);
+
+	ArrayList<BoardVO> selectBoardList();
 
 }

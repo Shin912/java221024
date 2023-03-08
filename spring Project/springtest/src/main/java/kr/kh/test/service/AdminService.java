@@ -6,12 +6,12 @@ import kr.kh.test.vo.BoardTypeVO;
 
 public interface AdminService {
 
-	ArrayList<BoardTypeVO> getBoardType();
-
+ArrayList<BoardTypeVO> getBoardTypeListAll();
+	
 	boolean insertBoardType(BoardTypeVO bt);
 
 	boolean updateBoardType(BoardTypeVO bt);
 
-	boolean deleteBoardType(int bt_num);
+	boolean deleteBoardType(Integer bt_num);
 
 }
