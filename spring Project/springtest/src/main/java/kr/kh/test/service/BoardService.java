@@ -17,6 +17,9 @@ public interface BoardService {
 
 	ArrayList<BoardVO> getBoardList(Criteria cri);
 
-	int getBoardTotalCount(Criteria cri);
+	int getTotalCountBoard(Criteria cri);
+
+	BoardVO getBoardAndUpdateView(int bo_num);
+
 
 }

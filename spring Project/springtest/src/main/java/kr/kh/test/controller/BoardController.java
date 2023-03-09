@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -52,12 +53,29 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/list", method=RequestMethod.GET)
 	public ModelAndView boardList(ModelAndView mv, Criteria cri) {
-		cri.setPerPageNum(3);
+		cri.setPerPageNum(5);
 		ArrayList<BoardVO> list = boardService.getBoardList(cri);
-		int totalCount = boardService.getBoardTotalCount(cri);
-		PageMaker pm = new PageMaker(totalCount, 3, cri);
+		int totalCount = boardService.getTotalCountBoard(cri);
+		int displayPageNum = 3;
+		PageMaker pm = 
+				new PageMaker(totalCount, displayPageNum, cri);
+		MemberVO user = new MemberVO();
+		user.setMe_authority(10);
+		ArrayList<BoardTypeVO> btList = boardService.getBoardTypeList(user);
+		
 		mv.addObject("list",list);
+		mv.addObject("pm", pm);
+		mv.addObject("btList", btList);
 		mv.setViewName("/board/list");
+		return mv;
+	}
+	
+	@RequestMapping(value="/board/detail/{bo_num}", method=RequestMethod.GET)
+	public ModelAndView boardDetail(ModelAndView mv, HttpSession session,
+			@PathVariable("bo_num")int bo_num) {
+		BoardVO board = boardService.getBoardAndUpdateView(bo_num);
+		mv.addObject("board", board);
+		mv.setViewName("/board/detail");
 		return mv;
 	}
 }

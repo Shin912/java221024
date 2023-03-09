@@ -68,12 +68,26 @@ public class BoardServiceImp implements BoardService{
 
 	@Override
 	public ArrayList<BoardVO> getBoardList(Criteria cri) {
-		return boardDao.selectBoardList();
+		cri = cri == null ? new Criteria() : cri;
+		return boardDao.selectBoardList(cri);
 	}
 
 	@Override
-	public int getBoardTotalCount(Criteria cri) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getTotalCountBoard(Criteria cri) {
+		cri = cri == null ? new Criteria() : cri;
+		return boardDao.selectTotalCountBoard(cri);
 	}
+
+	@Override
+	public BoardVO getBoardAndUpdateView(int bo_num) {
+		
+		int res;
+		res = boardDao.updateViews(bo_num);
+		if(res == 0)
+			return null;
+		
+		return boardDao.selectBoard(bo_num);
+	}
+
+
 }

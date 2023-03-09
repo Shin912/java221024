@@ -4,7 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.kh.test.dao.BoardDAO">
   <select id="selectBoardTypeList" resultType="kr.kh.test.vo.BoardTypeVO">
-  	select * from board_type where #{authority}  >= bt_w_authority 
+  	select * from board_type 
+  		where #{authority}  >= bt_w_authority 
   </select>
   
   <select id="selectBoardTypeByName" resultType="kr.kh.test.vo.BoardTypeVO">
@@ -45,6 +46,36 @@
   </insert>
   
   <select id="selectBoardList" resultType="kr.kh.test.vo.BoardVO">
-  	select * from board order by bo_num desc
+  	select * from board 
+  		where (bo_title like concat('%', #{cri.search}, '%')
+  			or bo_content like concat('%', #{cri.search}, '%')
+  		)
+  		<if test="cri.type != 0 ">
+  			and bo_bt_num = #{cri.type}
+  		</if>
+  		order by bo_num desc
+  		limit #{cri.pageStart}, #{cri.perPageNum}
+  </select>
+  <select id="selectTotalCountBoard" resultType="int">
+  	select count(*) from board
+  		where (bo_title like concat('%', #{cri.search}, '%')
+  			or bo_content like concat('%', #{cri.search}, '%')
+  		)
+  		<if test="cri.type != 0 ">
+  			and bo_bt_num = #{cri.type}
+  		</if>
+  </select>
+  <select id="selectAllBoardType" resultType="kr.kh.test.vo.BoardTypeVO">
+  	select * from board_type
+  		where bt_num = #{bt_num}
+  </select>
+  <update id="updateViews">
+  	update board 
+  		set bo_views = bo_views+1 
+  		where bo_num = #{bo_num}
+  </update>
+  <select id="selectBoard" resultType="kr.kh.test.vo.BoardVO">
+  	select * from board
+  		where bo_num = #{bo_num}
   </select>
 </mapper>

@@ -18,7 +18,7 @@ public class Criteria {
 			this.page = 1;
 			this.perPageNum = 10;
 			this.search = "";
-			this.type = 0;
+			this.type = 0; // int 기본값이 0이다
 		}
 		/* 쿼리문에서 limit에 사용되는 인덱스를 계산하는 getter */
 		public int getPageStart() {
