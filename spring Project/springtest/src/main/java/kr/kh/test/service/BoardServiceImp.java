@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import kr.kh.test.utils.UploadFileUtils;
-import kr.kh.test.vo.FileVO;
 import kr.kh.test.dao.BoardDAO;
 import kr.kh.test.pagination.Criteria;
+import kr.kh.test.utils.UploadFileUtils;
 import kr.kh.test.vo.BoardTypeVO;
 import kr.kh.test.vo.BoardVO;
+import kr.kh.test.vo.FileVO;
 import kr.kh.test.vo.MemberVO;
 
 @Service
@@ -26,24 +26,6 @@ public class BoardServiceImp implements BoardService{
 		if(user == null || user.getMe_authority() == 0)
 			return null;
 		return boardDao.selectBoardTypeList(user.getMe_authority());
-	}
-	
-	public void uploadFiles(MultipartFile[] files, int bo_num) {
-		if(files == null || files.length == 0)
-			return;
-		for(MultipartFile file : files) {
-			if(file == null || file.getOriginalFilename().length() == 0)
-				continue;
-			try {
-				String path = UploadFileUtils.uploadFile(uploadPath, 
-						file.getOriginalFilename(), //파일명
-						file.getBytes()); //실제 파일 데이터
-				FileVO fileVo = new FileVO(file.getOriginalFilename(), path, bo_num);
-				boardDao.insertFile(fileVo);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
 	}
 
 	@Override
@@ -62,7 +44,24 @@ public class BoardServiceImp implements BoardService{
 		
 		if(isOk == 0)
 			return false;
-		uploadFiles(files, board.getBo_num());
+		//첨부파일 추가
+		if(files == null || files.length == 0)
+			return true;
+		for(MultipartFile file : files) {
+			if(file == null || file.getOriginalFilename().length() == 0)
+				continue;
+			try {
+				String path = UploadFileUtils.uploadFile(uploadPath, 
+						file.getOriginalFilename(), file.getBytes());
+				FileVO fileVo = new FileVO(board.getBo_num(), path, 
+						file.getOriginalFilename());
+				boardDao.insertFile(fileVo);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return true;
+			}
+			
+		}
 		return true;
 	}
 
@@ -85,9 +84,11 @@ public class BoardServiceImp implements BoardService{
 		res = boardDao.updateViews(bo_num);
 		if(res == 0)
 			return null;
-		
 		return boardDao.selectBoard(bo_num);
 	}
 
-
+	@Override
+	public ArrayList<FileVO> getFileList(int bo_num) {
+		return boardDao.selectFileList(bo_num);
+	}
 }

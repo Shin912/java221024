@@ -23,14 +23,17 @@ public interface BoardDAO {
 
 	int insertBoard(@Param("bo")BoardVO board);
 
-	void insertFile(@Param("fi")FileVO fileVo);
+	void insertFile(@Param("file")FileVO fileVo);
 
 	ArrayList<BoardVO> selectBoardList(@Param("cri")Criteria cri);
 
 	int selectTotalCountBoard(@Param("cri")Criteria cri);
 
+	int updateViews(@Param("bo_num")int bo_num);
+
 	BoardVO selectBoard(@Param("bo_num")int bo_num);
 
-	int updateViews(@Param("bo_num")int bo_num);
+	ArrayList<FileVO> selectFileList(@Param("bo_num")int bo_num);
+	
 
 }

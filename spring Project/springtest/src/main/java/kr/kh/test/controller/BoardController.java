@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.kh.test.pagination.PageMaker;
 import kr.kh.test.pagination.Criteria;
+import kr.kh.test.pagination.PageMaker;
 import kr.kh.test.service.BoardService;
 import kr.kh.test.vo.BoardTypeVO;
 import kr.kh.test.vo.BoardVO;
+import kr.kh.test.vo.FileVO;
 import kr.kh.test.vo.MemberVO;
 
 @Controller
@@ -38,7 +39,6 @@ public class BoardController {
 	public ModelAndView boardInsertPost(ModelAndView mv, 
 			HttpSession session, BoardVO board, MultipartFile[] files) {
 		MemberVO user = (MemberVO)session.getAttribute("user");
-		System.out.println(board);
 		String msg;
 		if(boardService.insertBoard(board,user,files)) {
 			msg = "게시글 등록 성공!";
@@ -58,23 +58,24 @@ public class BoardController {
 		int totalCount = boardService.getTotalCountBoard(cri);
 		int displayPageNum = 3;
 		PageMaker pm = 
-				new PageMaker(totalCount, displayPageNum, cri);
+			new PageMaker(totalCount, displayPageNum, cri);
 		MemberVO user = new MemberVO();
 		user.setMe_authority(10);
 		ArrayList<BoardTypeVO> btList = boardService.getBoardTypeList(user);
-		
-		mv.addObject("list",list);
-		mv.addObject("pm", pm);
 		mv.addObject("btList", btList);
+		mv.addObject("list", list);
+		mv.addObject("pm", pm);
 		mv.setViewName("/board/list");
 		return mv;
 	}
-	
 	@RequestMapping(value="/board/detail/{bo_num}", method=RequestMethod.GET)
-	public ModelAndView boardDetail(ModelAndView mv, HttpSession session,
+	public ModelAndView boardDetail(ModelAndView mv,
 			@PathVariable("bo_num")int bo_num) {
 		BoardVO board = boardService.getBoardAndUpdateView(bo_num);
+		ArrayList<FileVO> fileList = boardService.getFileList(bo_num);
+		
 		mv.addObject("board", board);
+		mv.addObject("fileList", fileList);
 		mv.setViewName("/board/detail");
 		return mv;
 	}
