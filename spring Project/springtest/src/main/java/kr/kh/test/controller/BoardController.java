@@ -84,7 +84,6 @@ public class BoardController {
 	public ModelAndView boardDeletePost(ModelAndView mv, 
 			@PathVariable("bo_num")int bo_num,
 			HttpSession session) {
-		System.out.println(bo_num);
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		boolean res = boardService.deleteBoard(bo_num, user);
 		String url = "/board/list";
@@ -96,6 +95,43 @@ public class BoardController {
 		}
 		mv.addObject("msg",msg);
 		mv.addObject("url", url);
+		mv.setViewName("/common/message");
+		return mv;
+	}
+	
+	@RequestMapping(value="/board/update/{bo_num}", method=RequestMethod.GET)
+	public ModelAndView boardUpdate(ModelAndView mv,
+			@PathVariable("bo_num")int bo_num,
+			HttpSession session) {
+		BoardVO board = boardService.getBoard(bo_num);
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		ArrayList<BoardTypeVO> btList = boardService.getBoardTypeList(user);
+		ArrayList<FileVO> fileList = boardService.getFileList(bo_num);
+
+		mv.addObject("fileList",fileList);
+		mv.addObject("btList",btList);
+		mv.addObject("board", board);
+		mv.setViewName("/board/update");
+		return mv;
+	}
+	
+	@RequestMapping(value="/board/update/{bo_num}", method=RequestMethod.POST)
+	public ModelAndView boardUpdatePost(ModelAndView mv,
+			@PathVariable("bo_num")int bo_num,
+			HttpSession session,
+			BoardVO board,
+			MultipartFile []files,
+			int [] fileNums) {
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		String msg;
+		if(boardService.updateBoard(board, user, files, fileNums)) {
+			msg = "게시글 수정 성공!";
+		}else {
+			msg = "게시글 수정 실패!";
+		}
+
+
+
 		mv.setViewName("/common/message");
 		return mv;
 	}
