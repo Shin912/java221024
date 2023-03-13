@@ -106,8 +106,8 @@ public class BoardController {
 		@PathVariable("li_state")int li_state,
 		@PathVariable("bo_num")int bo_num) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		//res - 1: 추천, -1 : 비추천 : 0이면 취소
 		MemberVO user = (MemberVO)session.getAttribute("user");
+		//res - 1: 추천, -1 : 비추천 : 0이면 취소
 		int res = boardService.updateLikes(user, bo_num, li_state);
 		boardService.updateBoardByLikes(bo_num);
 		map.put("res", res);
