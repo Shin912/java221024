@@ -123,15 +123,16 @@ public class BoardController {
 			MultipartFile []files,
 			int [] fileNums) {
 		MemberVO user = (MemberVO)session.getAttribute("user");
+		String url = "/board/detail/"+bo_num;
 		String msg;
-		if(boardService.updateBoard(board, user, files, fileNums)) {
+		boolean res = boardService.updateBoard(board, user, files, fileNums);
+		if(res)
 			msg = "게시글 수정 성공!";
-		}else {
+		else
 			msg = "게시글 수정 실패!";
-		}
 
-
-
+		mv.addObject("msg",msg);
+		mv.addObject("url",url);
 		mv.setViewName("/common/message");
 		return mv;
 	}

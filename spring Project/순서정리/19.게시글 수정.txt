@@ -46,7 +46,7 @@
 
 8. 컨트롤러
  - 메소드 추가
-  - value : /voard/update/게시글 번호
+  - value : /board/update/게시글 번호
   - method : post
   - viewName : /common/message
  - 게시글 번호 확인
