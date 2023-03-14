@@ -8,7 +8,7 @@
 	width : 100px; height : 200px;
 	border : 1px solid black; font-size : 50px;
 	text-align: center; line-height: 200px; font-weight: bold;
-	border-radius: 5px; margin-right: 20px;
+	border-radius: 5px; 
 	float: left; cursor: pointer;
 }
 #image>div::after{
@@ -18,18 +18,19 @@
 	display: none;
 }
 #image>div>div{
-	float:left; margin-right: 20px
+	float:left; margin-right: 20px;
 }
 </style>
 <div class="container">
 	<h1>게시글 작성</h1>
 	<form action="<c:url value='/board/insert'></c:url>" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="bo_ori_num" value="${bo_ori_num }">
 		<div class="form-group">
 			<label for="type">게시판:</label>
-			<select class="form-control" name="bo_bt_num" id="type">
+			<select class="form-control" name="bo_bt_num" id="type" <c:if test="${board != null}">readonly</c:if> >
 				<option value="0">게시판을 선택하세요.</option>
 				<c:forEach items="${btList}" var="bt">
-					<option value="${bt.bt_num}">${bt.bt_name}</option>
+					<option value="${bt.bt_num}" >${bt.bt_name}</option>
 				</c:forEach>
 			</select>
 		</div>
@@ -110,10 +111,10 @@ $('form').submit(function(){
 		alert('내용을 입력하세요.');
 		return false;
 	}
-	//이미지 게시판에서 이미지가 1개이상 선택이 되어야 전송되도록 유효성 검사
+	//이미지 게시판에서 이미지가 1개이상 선택이 되어야 전송되도록 유효성 검사 
 	if(common.indexOf($('#type').val()) < 0){
-		let images = image.querySelecterAll('[type=file]');
-		for( i = 0; i<images.length; i++){
+		let images = image.querySelectorAll('[type=file]');
+		for(i = 0; i<images.length; i++){
 			if(images[i].files && images[i].files[0])
 				return true;
 		}
@@ -144,5 +145,6 @@ function readURL(input){
 	}
 	reader.readAsDataURL(input.files[0]);
 }
-let t;
+
+$('select').val('${board.bo_bt_num}').trigger('change');
 </script>
