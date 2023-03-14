@@ -11,9 +11,9 @@ public class LikesVO {
 	String li_me_id;
 	int li_bo_num;
 	
-	public LikesVO(int li_state, String li_me_id, int li_bo_num ) {
-		this.li_bo_num = li_bo_num;
+	public LikesVO(int li_state, String li_me_id, int li_bo_num) {
 		this.li_state = li_state;
 		this.li_me_id = li_me_id;
+		this.li_bo_num = li_bo_num;
 	}
 }
