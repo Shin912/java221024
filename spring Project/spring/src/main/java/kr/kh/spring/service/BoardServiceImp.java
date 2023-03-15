@@ -36,7 +36,7 @@ public class BoardServiceImp implements BoardService {
 			return false;
 		if(bt.getBt_type().equals("이미지"))
 			return true;
-		if(board.getBo_content() == null || 
+		if( board.getBo_content() == null|| 
 			board.getBo_content().trim().length() == 0)
 			return false;
 		return true;
@@ -202,21 +202,18 @@ public class BoardServiceImp implements BoardService {
 
 	@Override
 	public boolean updateBoard(BoardVO board, MultipartFile[] files, int[] fileNums, MemberVO user) {
-		if(board == null || board.getBo_num() <= 0)
+		if(board == null || board.getBo_num()<=0)
 			return false;
 		if(user == null)
 			return false;
 		//게시글 정보를 가져옴
 		BoardVO dbBoard = boardDao.selectBoard(board.getBo_num());
-		
 		//가져온 게시글이 null인지 확인
 		if(dbBoard == null)
 			return false;
-		
 		//게시글 작성자가 로그인한 회원이 맞는지 확인
 		if(!dbBoard.getBo_me_id().equals(user.getMe_id()))
 			return false;
-		
 		//다오에게 게시글 정보를 주면서 수정하라고 요청
 		if(boardDao.updateBoard(board) == 0)
 			return false;
@@ -227,7 +224,7 @@ public class BoardServiceImp implements BoardService {
 		//fileNums를 이용하여 첨부파일 객체를 가져와서 첨부파일 리스트에 추가
 		if(fileNums == null || fileNums.length == 0)
 			return true;
-		
+
 		ArrayList<FileVO> fileList = new ArrayList<FileVO>();
 		for(int fileNum : fileNums) {
 			FileVO fileVo = boardDao.selectFile(fileNum);
@@ -238,8 +235,8 @@ public class BoardServiceImp implements BoardService {
 		//삭제 첨부파일 리스트를 이용하여 첨부파일 삭제
 		deleteFileList(fileList);
 		
-		return true;
 		
+		return true;
 	}
 
 	@Override
@@ -260,5 +257,17 @@ public class BoardServiceImp implements BoardService {
 			return false;
 		comment.setCo_me_id(user.getMe_id());
 		return boardDao.insertComment(comment) != 0;
+	}
+
+	@Override
+	public ArrayList<CommentVO> getCommentList(Criteria cri, int co_bo_num) {
+		if(cri == null)
+			cri = new Criteria();
+		return boardDao.selectCommentList(cri, co_bo_num);
+	}
+
+	@Override
+	public int getTotalCountCommentList(int co_bo_num) {
+		return boardDao.selectTotalCountCommentList(co_bo_num);
 	}
 }
