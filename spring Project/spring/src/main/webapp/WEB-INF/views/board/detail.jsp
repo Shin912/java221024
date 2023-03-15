@@ -6,27 +6,29 @@
 <script src="<c:url value='/resources/js/summernote-bs4.min.js'></c:url>"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <style>
-    .swiper {
-      width: 100%;
-      height: 200px;
-    }
+.swiper {
+  width: 100%;
+  height: 200px;
+}
 
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .swiper-slide2 img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.swiper-slide2 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 </style>
+
 <div class="container">
 	<h1>게시글 확인</h1>
 	<div class="form-group">
@@ -66,22 +68,22 @@
 			</c:if>
 		</div>
 	</c:if>
-	<c:if test="${board.bt_type == '이미지' }">
-		<div id="image" style="">
+	<c:if test="${board.bt_type =='이미지' }">
+		<div id="image">
 			<div class="form-group mt-3">
-				<label>이미지:</label>
+				<label>이미지</label>
 				<div class="swiper mySwiper">
-				    <div class="swiper-wrapper">
-					    <c:forEach items="${files }" var="file">
-					    	<div class="swiper-slide">
-								<img src="<c:url value="/download${file.fi_name}"></c:url>" height="200" width="auto">
-							</div>
-						</c:forEach>
-				    </div>
-				    <div class="swiper-button-next"></div>
-				    <div class="swiper-button-prev"></div>
-				    <div class="swiper-pagination"></div>
- 				</div>
+				  <div class="swiper-wrapper">
+				  	<c:forEach items="${files}" var="file">
+				  		<div class="swiper-slide">
+							<img src="<c:url value="/download${file.fi_name}"></c:url>" height="200" width="auto">
+						</div>	
+					</c:forEach>
+				  </div>
+				  <div class="swiper-button-next"></div>
+				  <div class="swiper-button-prev"></div>
+				  <div class="swiper-pagination"></div>
+				</div>
 			</div>
 		</div>
 	</c:if>
@@ -109,9 +111,25 @@
 			</a>
 		</div>
 	</c:if>
-	<a href="<c:url value='/board/insert?bo_ori_num=${board.bo_num}'></c:url>">
-		<button class="btn btn-outline-primary btn-reply">답글</button>
-	</a>
+	<c:if test="${board.bo_num == board.bo_ori_num}">
+		<a href="<c:url value='/board/insert?bo_ori_num=${board.bo_num}'></c:url>">
+			<button class="btn btn-outline-primary btn-reply">답글</button>
+		</a>
+	</c:if>
+	<div class="comment-list mt-2">
+	
+	</div>
+	<div class="comment-pagination mt-2">
+	
+	</div>
+	<div class="comment-box mt-2">
+		<div class="input-group mb-3">
+			<textarea class="form-control" placeholder="댓글을 입력하세요." name="co_content"></textarea>
+			<div class="input-group-append">
+				<button class="btn btn-success btn-comment-insert" type="submit">댓글등록</button>
+			</div>
+		</div>
+	</div>
 </div>
 <script>
 $(function(){
@@ -160,15 +178,52 @@ $(function(){
 	    });
 		
 	});
-});
+})
 var swiper = new Swiper(".mySwiper", {
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination:{
-    	  el: ".swiper-pagination",
-      },
-      loop: true,
-    });
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  pagination: {
+      el: ".swiper-pagination",
+  },
+  loop: true,
+});
+</script>
+<script>
+$('.btn-comment-insert').click(function(){
+	//로그인 여부 체크
+	if('${user.me_id}' == ''){
+		alert('로그인하세요.');
+		return;
+	}
+	//ajax를 이용하여 댓글 등록
+	//댓글 정보를 가진 객체를 생성
+	let co_content = $('[name=co_content]').val();
+	if(co_content.trim().length == 0){
+		alert('댓글 내용을 입력하세요.');
+		return;
+	}
+	let comment = {
+		co_content : co_content,
+		co_bo_num : '${board.bo_num}'
+	}
+	ajax('POST', 
+		comment, 
+		'<c:url value="/comment/insert"></c:url>',
+		function(data){
+			console.log(data);
+		})
+})
+function ajax(method, obj, url, successFunc, errorFunc){
+	$.ajax({
+		async:false,
+		type: method,
+		data: JSON.stringify(obj),
+		url: url,
+		dataType:"json",
+		contentType:"application/json; charset=UTF-8",
+		success : successFunc
+	});
+}
 </script>
