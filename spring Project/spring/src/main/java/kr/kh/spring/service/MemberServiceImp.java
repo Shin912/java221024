@@ -121,7 +121,7 @@ public class MemberServiceImp implements MemberService{
 		if(user == null ||
 				user.getMe_id() == null ||
 				user.getMe_id().trim().length() == 0)
-		return false;
+			return false;
 		return memberDao.selectMemberById(user.getMe_id()) == null;
 	}
 
