@@ -62,6 +62,14 @@
 	</form>
 	<a href="<c:url value='/board/update/${board.bo_num}'></c:url>" class="btn btn-outline-danger">수정</a>
 </c:if>
+	<div class="comment-box mt-2">
+		<div class="input-group mb-3">
+			<textarea class="form-control" placeholder="댓글을 입력하세요." name="co_content"></textarea>
+			<div class="input-group-append">
+				<button class="btn btn-success btn-comment-insert" type="submit">댓글등록</button>
+			</div>
+		</div>
+	</div>
 <script>
 $('.btn-up, .btn-down').click(function(){
 	
@@ -98,5 +106,13 @@ $('.btn-up, .btn-down').click(function(){
         	}
         }
     });
+});
+</script>
+<script>
+$('.btn-comment-insert').click(function(){
+	if('${user.me_id}' == ''){
+		let result = confirm("로그인 되어있지 않습니다.\n로그인창으로 가시겠습니까?");
+		
+	}else 
 });
 </script>
