@@ -55,6 +55,13 @@
 		</c:forEach>
 	</div>
 </c:if>
+<h4>댓글</h4>
+<div class="input-group mb-3">
+	<textarea class="form-control" placeholder="댓글를 입력하세요." name="co_content"></textarea>
+	<div class="input-group-append">
+		<button class="btn btn-success btn-comment-insert" type="button">댓글등록</button>
+	</div>
+</div>
 <a class="btn btn-success" href="<c:url value='/board/list'></c:url>">목록</a>
 <c:if test="${user != null && user.me_id == board.bo_me_id }">
 	<form action="<c:url value='/board/delete/${board.bo_num}'></c:url>" method="post" style="display: inline-block;">
@@ -62,14 +69,7 @@
 	</form>
 	<a href="<c:url value='/board/update/${board.bo_num}'></c:url>" class="btn btn-outline-danger">수정</a>
 </c:if>
-	<div class="comment-box mt-2">
-		<div class="input-group mb-3">
-			<textarea class="form-control" placeholder="댓글을 입력하세요." name="co_content"></textarea>
-			<div class="input-group-append">
-				<button class="btn btn-success btn-comment-insert" type="submit">댓글등록</button>
-			</div>
-		</div>
-	</div>
+
 <script>
 $('.btn-up, .btn-down').click(function(){
 	
@@ -108,11 +108,48 @@ $('.btn-up, .btn-down').click(function(){
     });
 });
 </script>
+
 <script>
+//댓글과 관련된 전역 변수들
+const bo_num = '${bo_num}';
 $('.btn-comment-insert').click(function(){
 	if('${user.me_id}' == ''){
-		let result = confirm("로그인 되어있지 않습니다.\n로그인창으로 가시겠습니까?");
-		
-	}else 
+		if(confirm('댓글은 회원만 작성할 수 있습니다.\n로그인 페이지로 이동하겠습니까?')){
+			location.href = '<c:url value="/login"></c:url>';
+		}
+		return;
+	}
+	let co_content = $('[name=co_content]').val();
+	if(co_content.trim().length == 0){
+		alert('댓글을 입력하세요.');
+		$('[name=co_content]').focus();
+		return;
+	}
+	
+	let comment = {
+		co_bo_num : bo_num,
+		co_content : co_content
+	}
+	ajaxPost(comment, '<c:url value="/comment/insert"></c:url>', insertSuccess);
+	
 });
+function insertSuccess(data){
+	if(data.res){
+		alert('댓글을 등록했습니다.');
+		$('[name=co_content]').val('');
+	}else{
+		alert('댓글을 등록하지 못했습니다.');
+	}
+}
+function ajaxPost(obj, url, successFunction){
+	$.ajax({
+		async:false,
+		type: 'POST',
+		data: JSON.stringify(obj),
+		url: url,
+		dataType:"json",
+		contentType:"application/json; charset=UTF-8",
+		success : successFunction
+	});
+}
 </script>

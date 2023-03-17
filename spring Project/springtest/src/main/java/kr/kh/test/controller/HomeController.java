@@ -65,29 +65,35 @@ public class HomeController {
 	public ModelAndView loginPost(ModelAndView mv,MemberVO member,
 			HttpServletResponse response) {
 		MemberVO user = memberService.login(member);
+		String msg, url;
+		
 		//인증한 회원들만 로그인 하도록
 		if(user != null && user.getMe_authority() > 0) {
+			user.setAutoLogin(member.isAutoLogin());
 			mv.addObject("user", user);
-			mv.setViewName("redirect:/");
-			MessageUtils.alertAndMovePage(response, "로그인에 성공했습니다.", 
-					contextPath, "/");
+			msg = "로그인에 성공했습니다.";
+			url = "/";
 		}else {
-			if(user != null) {
-				//인증 안된 회원이라고 알려주는 메세지
-				MessageUtils.alertAndMovePage(response, "이메일 인증을 완료해야 로그인이 가능합니다.", 
-						contextPath, "/login");
-			}else {
-				MessageUtils.alertAndMovePage(response, "로그인에 실패했습니다.", 
-						contextPath, "/login");
-			}
+			url = "/login";
+			if(user != null) 
+				msg = "이메일 인증을 완료해야 로그인이 가능합니다.";
+			else 
+				msg = "로그인에 실패했습니다.";
+			
 			mv.setViewName("redirect:/login");
 		}
+		mv.addObject("url",url);
+		mv.addObject("msg", msg);
+		mv.setViewName("/common/message");
 		return mv;
 	}
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public ModelAndView logoutPost(ModelAndView mv, HttpSession session, 
 			HttpServletResponse response) {
 		if(session != null) {
+			MemberVO user = (MemberVO) session.getAttribute("user");
+			user.setMe_session_limit(null);
+			memberService.updateSession(user);
 			session.removeAttribute("user");
 			MessageUtils.alertAndMovePage(response, "로그아웃에 성공했습니다.", 
 					contextPath, "/");
