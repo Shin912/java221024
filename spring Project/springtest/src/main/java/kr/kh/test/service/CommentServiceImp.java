@@ -1,9 +1,12 @@
 package kr.kh.test.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.kh.test.dao.CommentDAO;
+import kr.kh.test.pagination.Criteria;
 import kr.kh.test.vo.CommentVO;
 import kr.kh.test.vo.MemberVO;
 
@@ -22,5 +25,19 @@ public class CommentServiceImp implements CommentService {
 			return false;
 		comment.setCo_me_id(user.getMe_id());
 		return commentDao.insertComment(comment) != 0;
+	}
+
+	@Override
+	public ArrayList<CommentVO> getCommentList(Criteria cri, int bo_num) {
+		if(cri == null)
+			cri = new Criteria();
+		
+		return null;
+	}
+
+	@Override
+	public int getTotalCountCommentList(Criteria cri, int bo_num) {
+		
+		return 0;
 	}
 }

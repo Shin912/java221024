@@ -57,7 +57,11 @@ public class HomeController {
 		return mv;
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login(ModelAndView mv) {
+	public ModelAndView login(ModelAndView mv, HttpServletRequest request) {
+		String url = request.getHeader("Referer");
+		if(url != null && url.contains("/login")) { //get -> post -> get 문제발생(무한반복)
+			request.getSession().setAttribute("prevURL", url);
+		}
 		mv.setViewName("/member/login");
 		return mv;
 	}
