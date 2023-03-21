@@ -254,7 +254,20 @@ function addCommentList(list){
 	
 	});
 	//수정 클릭 이벤트 추가
-
+	$('.btn-update').click(function(){
+		//로그인 확인
+		if('${user.me_id}' == ''){
+			if(confirm('작성자만 댓글을 삭제할 수 있습니다.\n로그인 페이지로 이동하겠습니까?')){
+				location.href = '<c:url value="/login"></c:url>';
+			}
+			return;
+		}
+		//다른 버튼들의 버튼들을 보여주게함
+		$('.btn-group').show();
+		//다른 버튼들의 수정창을 제거
+		$('.btn-update').remove();
+		//버튼들 안보이게함
+	});
 }
 
 function deleteSuccess(data){
