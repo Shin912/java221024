@@ -12,6 +12,6 @@ public interface CommentService {
 
 	ArrayList<CommentVO> getCommentList(Criteria cri, int bo_num);
 
-	int getTotalCountCommentList(Criteria cri, int bo_num);
+	int getTotalCountCommentList(int bo_num);
 
 }

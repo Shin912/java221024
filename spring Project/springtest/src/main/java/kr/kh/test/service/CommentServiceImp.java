@@ -31,13 +31,11 @@ public class CommentServiceImp implements CommentService {
 	public ArrayList<CommentVO> getCommentList(Criteria cri, int bo_num) {
 		if(cri == null)
 			cri = new Criteria();
-		
-		return null;
+		return commentDao.selectCommentList(bo_num, cri);
 	}
 
 	@Override
-	public int getTotalCountCommentList(Criteria cri, int bo_num) {
-		
-		return 0;
+	public int getTotalCountCommentList(int bo_num) {
+		return commentDao.selectTotalCountCommentList(bo_num);
 	}
 }
