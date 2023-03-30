@@ -30,7 +30,7 @@ li {	list-style: none;}
 	position: relative; width: 595px; margin: 0 auto;
 }
 .container-main .todayGame .date-select .btn{
-	position: absolute; top: 0; width: 50px; height: 100%;
+	position: absolute; top: 0; width: 30px; height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
 	border: none; cursor: pointer; outline: 0;
 }
@@ -41,7 +41,7 @@ li {	list-style: none;}
 }
 .container-main .todayGame .date-select img{
 	vertical-align: top; width: 30px; opacity: 0.7;
-	border: 0 none;
+	border: 0 none; position: relative; right: 10px;
 }
 .container-main .todayGame .date-select .btn-next{
 	border-bottom-right-radius: 5px;
