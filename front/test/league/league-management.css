@@ -1,0 +1,58 @@
+* {	margin: 0;	padding: 0;}
+a {	color: inherit;
+	text-decoration: none;
+	cursor: pointer;}
+li {	list-style: none;}
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.top-box .navbar{
+	width: 128px;
+}
+
+.middle-box .form-group{
+	display: inline-block;
+}
+.middle-box .filter-box .btn{
+	position: relative; bottom: 3px;
+}
+.middle-box .btn-complete{
+	position: relative; bottom: 3px; left: 750px;
+}
+
+
+.table{
+	width: 100%;  border-collapse: collapse;
+  text-align: center;
+}
+.table thead th{
+	font-size: 12px; padding: 12px;
+	border-top: 1px solid black;
+}
+
+
+.bottom-box{
+	width: 1200px;
+}
+.table tbody td{
+	font-size: 15px; border-right: 1px solid darkgray;
+}
+.table tbody td .btn{
+	padding: 3px; width: 70px; font-size: 14px;
+}
+
+select {
+  /* 생략 */
+  font-family: "Noto Sansf KR", sans-serif;
+	text-align: center;
+  color: #444;
+  background-color: #fff;
+	width: 30px; height: 25px;
+
+  border: 1px solid #aaa;
+	border-radius: 5px;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+}

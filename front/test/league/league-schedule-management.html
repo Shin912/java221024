@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="league-schedule-management.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="league-schedule.html">경기일정/결과</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="league-enroll.html">리그경기신청</a>
+			</li>
+			<li class="nav-item   active">
+				<a class="nav-link" href="league-schedule-management.html">경기일정관리</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="middle-box mt-2">
+		<div class="filter-box">
+			<form action="">
+				<div class="form-group">
+					<label for="year"></label>
+					<select class="form-control" id="year">
+						<option>2021</option>
+						<option>2022</option>
+						<option selected>2023</option>
+						<option>2024</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="league-name"></label>
+					<select class="form-control" id="league-name">
+						<option>kh중앙리그</option>
+						<option>kh숏리그</option>
+						<option selected>kh평일리그</option>
+						<option>kh주말리그</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="league-type"></label>
+					<select class="form-control" id="league-type">
+						<option>중앙3부리그</option>
+						<option>숏4부리그</option>
+						<option>평일3부리그</option>
+						<option>주말4부리그</option>
+					</select>
+				</div>
+				<button type="button" class="btn btn-outline-secondary">검색</button>
+			</form>
+		</div>
+		<div class="bottom-box">
+			<table class="table">
+				<thead>
+					<tr>
+						<th style="width:8%">날짜</th>
+						<th style="width:8%">시간</th>
+						<th style="width:4%">순서</th>
+						<th style="width:20%">리그</th>
+						<th style="width:10%">구장</th>
+						<th style="width:30%">게임</th>
+						<th style="width:8%">진행상황</th>
+						<th style="width:8%">경기기록</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>03.23 (목)</td>
+						<td>20:00</td>
+						<td>1</td>
+						<td>평일리그/평일야간리그</td>
+						<td>소망야구장</td>
+						<td>
+							<div class="team-wrap">
+								<span class="team"><a href="">빈티지(야간)</a></span>
+							</div>
+							<span class="score"></span>
+							<span class="versus">VS</span>
+							<span class="csore"></span>
+							<div class="team-wrap">
+								<span class="team"><a href="">펠컨스</a></span>
+							</div>
+						</td>
+						<td>경기전</td>
+						<td>
+							<button type="button" class="btn btn-secondary">경기기록</button>
+						</td>
+					</tr>
+					<tr>
+						<td>03.23 (목)</td>
+						<td>20:00</td>
+						<td>1</td>
+						<td>평일리그/평일야간리그</td>
+						<td>소망야구장</td>
+						<td>
+							<div class="team-wrap">
+								<span class="team"><a href="">빈티지(야간)</a></span>
+							</div>
+							<span class="score"></span>
+							<span class="versus">VS</span>
+							<span class="csore"></span>
+							<div class="team-wrap">
+								<span class="team"><a href="">펠컨스</a></span>
+							</div>
+						</td>
+						<td>경기전</td>
+						<td>
+							<button type="button" class="btn btn-secondary">경기기록</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</body>
+</html>

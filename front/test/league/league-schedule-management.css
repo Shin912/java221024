@@ -1,0 +1,43 @@
+* {	margin: 0;	padding: 0;}
+a {	color: inherit;
+	text-decoration: none;
+	cursor: pointer;}
+li {	list-style: none;}
+
+
+.top-box .navbar{
+	width: 128px;
+}
+
+.middle-box .form-group{
+	display: inline-block;
+}
+.middle-box .filter-box .btn{
+	position: relative; bottom: 3px;
+}
+
+.table{
+	width: 100%;  border-collapse: collapse;
+  text-align: center;
+}
+.table thead th{
+	font-size: 12px; padding: 12px;
+	border-top: 1px solid black;
+}
+
+
+.bottom-box{
+	width: 1200px;
+}
+.table tbody td{
+	font-size: 12px; border-right: 1px solid darkgray;
+}
+.table tbody td .btn{
+	padding: 1px; width: 70px; font-size: 12px;
+}
+.table .team-wrap{
+	display: inline-block; width: 150px;
+}
+.talbe tbody td .versus{
+	width: 12px; display: inline-block;
+}
