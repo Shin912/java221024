@@ -13,20 +13,144 @@
 </head>
 <body>
 	<div class="container-main">
-		<div class="box-main">
-			<div class="todayGame">
-				<div class="date-select">
-					<button type="button" class="btn btn-pre">
-						<img src="arrow_left_w.svg" alt="">
-					</button>
-					<button type="button" class="btn btn-next">
-						<img src="arrow_right_w.svg" alt="">
-					</button>
-					<span class="today-date">
-						4월 1일
-					</span>
+		<div class="box-main-top">
+			<div class="main-top-game">
+				<div class="section league">
+					<div class="select-box">
+						<select name="league-name">
+							<option value="name">평일리그</option>
+							<option value="">주말리그</option>
+						</select>
+						<select name="league-type">
+							<option value="1">평일야간3부</option>
+						</select>
+						<button type="button" class="btn btn-secondary btn-sm mb-1">조회</button>
+					</div>
+					<div class="attend-team">
+						<h2>9개팀</h2>
+						<ul>
+							<li>
+								<a href="">
+									<span><img src="kt로고1.jpg"></span>
+								</a>
+							</li>
+						</ul>
+						<button type="button" class="btn" >리그신청하기</button>
+					</div>
+				</div>
+				<div class="section">
+					<div class="section-tab">
+						<div class="tab tab-left selected">
+							<span>경기일정</span>
+						</div>
+						<div class="tab tab-right">
+							<span>경기결과</span>
+						</div>
+					</div>
+					<div class="article schedule" hidden>
+						<div class="list-scroll">
+							<ul class="list-game">
+								<li>
+									<dl>
+										<dt>04월02일 (일) 09:00</dt>
+										<dd>
+											<a href="">
+												<span class="emblem">
+													<img src="kt로고1.jpg" style="width: 30px;height: 30px;">
+												</span>
+												<span class="team">KT 위즈</span>
+											</a>
+										</dd>
+										<dd class="versus">vs</dd>
+										<dd>
+											<a href="">
+												<span class="emblem">
+													<img src="kt로고1.jpg" style="width: 30px;height: 30px;">
+												</span>
+												<span class="team">최강 몬스터즈</span>
+											</a>
+										</dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="article result">
+						<div class="list-scroll">
+							<ul class="list-game">
+								<li>
+									<dl>
+										<dt>04월02일 (일) 09:00</dt>
+										<dd>
+											<a href="">
+												<span class="emblem">
+													<img src="kt로고1.jpg" style="width: 30px;height: 30px;">
+												</span>
+												<span class="team">KT 위즈</span>
+												<span class="score">2</span>
+											</a>
+										</dd>
+										<dd class="versus">vs</dd>
+										<dd>
+											<a href="">
+												<span class="emblem">
+													<img src="kt로고1.jpg" style="width: 30px;height: 30px;">
+												</span>
+												<span class="team">KT 위즈</span>
+												<span class="score">2</span>
+											</a>
+										</dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="section team">
+					<div class="ranking-title">
+						<span>팀 랭킹</span>
+					</div>
+					<div class="ranking-contents">
+						<table class="rank-table">
+							<thead>
+								<tr>
+									<th style="width: 20%;">순위</th>
+									<th style="width: 40%;">팀명</th>
+									<th style="width: 20%;">경기</th>
+									<th style="width: 20%;">승률</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>1</th>
+									<td>
+										<a href="">
+											<span class="team">kt위즈</span>
+										</a>
+									</td>
+									<td>2</td>
+									<td>
+										<span class="red">1.000</span>
+									</td>
+								</tr>
+								<tr>
+									<th>1</th>
+									<td>
+										<a href="">
+											<span class="team">kt위즈</span>
+										</a>
+									</td>
+									<td>2</td>
+									<td>
+										<span class="red">0.500</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 </body>
