@@ -15,32 +15,40 @@
 	<div class="container-side">
 		<ul class="list-main-menu">
 			<li class="item-main-menu">
-				<a href="" class="link-main-menu">리그소개</a>
-				<ul>
-					<li><a href="">리그소개</a></li>
-					<li><a href="">리그규정</a></li>
+				<a href="#" class="link-main-menu">리그소개</a>
+				<ul class="list-sub-menu">
+					<li><a href="#">리그소개</a></li>
+					<li><a href="#">리그규정</a></li>
 				</ul>
 			</li>
 			<li class="item-main-menu">
 				<a href="" class="link-main-menu">리그일정/결과</a>
-				<ul class="list-sub-menu">
+				<ul class="list-sub-menu" hidden>
 					<li><a href="">리그일정</a></li>
 				</ul>
 			</li>
 			<li class="item-main-menu">
-				<a href="./recode/recode-hit.html" class="link-main-menu">기록실</a>
-				<ul>
-					<li><a href="">선수기록</a></li>
-					<li><a href="">팀순위</a></li>
+				<a href="#" class="link-main-menu">기록실</a>
+				<ul hidden>
+					<li><a href="#">선수기록</a></li>
+					<li><a href="#">팀순위</a></li>
 				</ul>
 			</li>
 			<li class="item-main-menu">
-				<a href="" class="link-main-menu">팀/선수현황</a>
+				<a href="#" class="link-main-menu">팀/선수현황</a>
 			</li>
 			<li class="item-main-menu">
-				<a href="" class="link-main-menu">커뮤니티</a>
+				<a href="#" class="link-main-menu">커뮤니티</a>
 			</li>
 		</ul>
 	</div>
+
+	<script>
+		$(function(){
+			$('link-main-menu').on('click', function(){
+				$('.list-sub-menu').show();
+			})
+		})
+	</script>
 </body>
 </html>
