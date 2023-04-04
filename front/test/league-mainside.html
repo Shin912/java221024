@@ -16,39 +16,73 @@
 		<ul class="list-main-menu">
 			<li class="item-main-menu">
 				<a href="#" class="link-main-menu">리그소개</a>
-				<ul class="list-sub-menu">
-					<li><a href="#">리그소개</a></li>
-					<li><a href="#">리그규정</a></li>
-				</ul>
+				<div class="list-sub-menu off">
+					<ul>
+						<li class="item-sub-menu">
+							<a href="#">
+								<span class="menu-title">리그소개</span>
+							</a>
+						</li>
+						<li class="item-sub-menu">
+							<a href="#">
+								<span class="menu-title">리그규정</span>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</li>
 			<li class="item-main-menu">
-				<a href="" class="link-main-menu">리그일정/결과</a>
-				<ul class="list-sub-menu" hidden>
-					<li><a href="">리그일정</a></li>
-				</ul>
+				<a href="#" class="link-main-menu">리그일정</a>
+				<div class="list-sub-menu off">
+					<ul>
+						<li class="item-sub-menu">
+							<a href="#">
+								<span class="menu-title">리그일정</span>
+							</a>
+						</li>
+						<li class="item-sub-menu">
+							<a href="#">
+								<span class="menu-title">리그결과</span>
+							</a>
+						</li>
+						<li class="item-sub-menu">
+							<a href="#">
+								<span class="menu-title">리그경기신청</span>
+							</a>
+						</li>
+						<li class="item-sub-menu">
+							<a href="#">
+								<span class="menu-title">경기일정관리</span>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</li>
 			<li class="item-main-menu">
 				<a href="#" class="link-main-menu">기록실</a>
-				<ul hidden>
-					<li><a href="#">선수기록</a></li>
-					<li><a href="#">팀순위</a></li>
-				</ul>
-			</li>
-			<li class="item-main-menu">
-				<a href="#" class="link-main-menu">팀/선수현황</a>
-			</li>
-			<li class="item-main-menu">
-				<a href="#" class="link-main-menu">커뮤니티</a>
+				<div class="list-sub-menu off">
+					<ul>
+						<li class="item-sub-menu">
+							<a href="#">
+								<span class="menu-title">선수기록</span>
+							</a>
+						</li>
+						<li class="item-sub-menu">
+							<a href="#">
+								<span class="menu-title">팀순위</span>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</li>
 		</ul>
 	</div>
 
 	<script>
-		$(function(){
-			$('link-main-menu').on('click', function(){
-				$('.list-sub-menu').show();
-			})
-		})
+		$('.link-main-menu').click((e)=>e.preventDefault());
+		$('.link-main-menu').click(function(){
+			$(this).next().toggle();
+		});
 	</script>
 </body>
 </html>
