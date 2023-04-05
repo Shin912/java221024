@@ -11,7 +11,7 @@ ul, li{
 .container-side{
 	height: auto; width: 300px;
 	min-height: 100%;
-	display: flex; top: 150px;
+	display: flex;
 	flex-direction: column;
 	position: relative;
 	z-index: 2; 
