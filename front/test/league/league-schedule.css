@@ -29,7 +29,9 @@ li {	list-style: none;}
 	width: 1200px;
 }
 .table tbody td{
-	font-size: 12px; border-right: 1px solid darkgray;
+	padding: 11px;
+	font-size: 12px; border-right: 1px solid #dee2e6;
+	line-height: 20px;
 }
 .table tbody td .btn{
 	padding: 1px; width: 70px; font-size: 12px;
@@ -37,6 +39,18 @@ li {	list-style: none;}
 .table .team-wrap{
 	display: inline-block; width: 150px;
 }
-.talbe tbody td .versus{
-	width: 12px; display: inline-block;
+.table .team-wrap.team-left{
+	text-align: left;
+}
+.table .team-wrap.team-left .score{
+	float: right;
+}
+.table .team-wrap.team-right{
+	text-align: right;
+}
+.table .team-wrap.team-right .score{
+	float: left;
+}
+.table .versus{
+	margin: 0 9px;
 }
