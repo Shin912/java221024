@@ -593,16 +593,98 @@
 						</tr>
 					</tbody>
 				</table>
+				<hr>
 			</div>
-			<div class="middle-footer">
+			<div class="box-recode-player">
+				<table class="tbl">
+					<thead>
+						<tr class="tbl-player-hit">
+							<th style="width: 47px;">타순</th>
+							<th style="width: 60px;">이름</th>
+							<th style="width: 65px;">수비위치</th>
+							<th style="width: 35px;">구분</th>
+							<th style="width: 65px;">1</th>
+							<th style="width: 65px;">2</th>
+							<th style="width: 65px;">3</th>
+							<th style="width: 65px;">4</th>
+							<th style="width: 65px;">5</th>
+							<th style="width: 65px;">6</th>
+							<th style="width: 65px;">7</th>
+							<th style="width: 65px;">8</th>
+							<th style="width: 65px;">9</th>
+							<th style="width: 25px;">타석</th>
+							<th style="width: 25px;">타수</th>
+							<th style="width: 25px;">안타</th>
+							<th style="width: 25px;">타점</th>
+							<th style="width: 25px;">득점</th>
+							<th style="width: 25px;">도루</th>
+							<th style="width: 20px;"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>이정후(22)</td>
+							<td>우익수(RF)</td>
+							<td>대수비</td>
+							<td>유땅</td>
+							<td>좌중월홈</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>
+								<button class="player-recode-btn">
+									<span class="result">0</span>
+								</button>
+							</td>
+							<td>
+								<button class="player-recode-btn">
+									<span class="result">0</span>
+								</button>
+							</td>
+							<td>
+								<button class="player-recode-btn" onclick="increase(this)">
+									<span class="result">0</span>
+								</button>
+							</td>
+							<td>
+								<button class="player-recode-btn" onclick="increase(this)">
+									<span class="result">0</span>
+								</button>
+							</td>
+							<td>
+								<input class="player-recode-btn" type="text" placeholder="0">
+							</td>
+							<td>
+								<button class="player-recode-btn" onclick="increase(this)">
+									<span class="result">0</span>
+								</button>
+							</td>
+							<td>
+								<button class="btn-delete"></button>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
 				
 			</div>
 		</div>
-		<div class="box-bottom"></div>
+		<div class="box-bottom">
+		</div>
 	</div>
 
 	<script>
-		
+		var count=0;
+		function increase(slef){
+			count=count+1;
+			document.querySelector(".result").innerText=count;
+		}
+
 
 		
 	</script>

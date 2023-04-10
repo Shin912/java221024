@@ -74,6 +74,7 @@ padding: 10px;
 .box-middle{
 	border-radius: 10px; border: 1px solid #000;
 	margin: 50px 50px; width: 1100px; background-color: #fff;
+	padding-bottom: 40px;
 }
 .box-middle .middle-top{
 	height: 50px; text-align: center; line-height: 50px;
@@ -144,101 +145,32 @@ background: #aa1ed4;
 .box-middle .recode-guide .btn-eror{
 	background: #81DAF5;
 }
-.recode-guide input{
-	pointer-events: none; text-align: center; border-radius: 5px; 
-	border: 1px solid gray; margin-left: 26px;
+
+.box-middle .box-recode-player{
+	margin-top: 10px;
 }
-.recode-guide input:nth-child(1){	margin-left: 10px;}
+.box-middle .box-recode-player .tbl{
+	background-color: #fff; font-size: 11px; border-top: 1px solid #929292;
+}
+.box-middle .box-recode-player .tbl .btn-delete{
+	width: 15px; height: 15px;
+}
+
+
+.box-middle .box-recode-player .tbl thead th{
+	 text-align: center; border-left: 1px solid #505050;
+	 height: 25px;
+}
+.box-middle .box-recode-player .tbl tbody td{
+	text-align: center; height: 25px; border: 0.5px solid #929292;
+}
+
+.box-middle .box-recode-player .tbl .player-recode-btn{
+	width: 20px; height: 20px; position: relative;
+	top: 1px; text-align: center;
+}
+
 
 
 /* 기록 내용 */
-.middle-recodeContent{
-	border-top: 1px solid #dae1e6; font-size: 13px; 
-	height: 240px;  position: relative; color: #000; 
-}
-.middle-recodeContent li{
-	float: left; position: relative; display: list-item;
-	width: 10%; height: 20px; text-align: center;
-}
-.middle-recodeContent li .btn-content{
-	background-color: red; width: 24px; height: 16px;
-	border: 0.1px solid white; border-radius: 4px; color: white; 
-	text-align: center; cursor: pointer; font-size: 12px;
-}
-.middle-recodeContent .box-line [class^=line-to-]{
-	position: absolute; background-color: #e4e8eb;
-}
-.middle-recodeContent .box-line [class^=line-to-bottom]{
-	left: 0; right: 0; height: 1px;
-}
-.middle-recodeContent .box-line .line-to-bottom1{		top: 18px;		}
-.middle-recodeContent .box-line .line-to-bottom2{		top: 38px;		}
-.middle-recodeContent .box-line .line-to-bottom3{		top: 58px;		}
-.middle-recodeContent .box-line .line-to-bottom4{		top: 78px;		}
-.middle-recodeContent .box-line .line-to-bottom5{		top: 98px;		}
-.middle-recodeContent .box-line .line-to-bottom6{		top: 118px;		}
-.middle-recodeContent .box-line .line-to-bottom7{		top: 138px;		}
-.middle-recodeContent .box-line .line-to-bottom8{		top: 158px;		}
-.middle-recodeContent .box-line .line-to-bottom9{		top: 178px;		}
-.middle-recodeContent .box-line .line-to-bottom10{		top: 198px;		}
-.middle-recodeContent .box-line .line-to-bottom11{		top: 218px;		}
-.middle-recodeContent .box-line .line-to-bottom12{		top: 238px;		}
-
-.middle-recodeContent .box-line [class^=line-to-right]{
-	top: 0; bottom: 0; width: 1px;
-}
-.middle-recodeContent .box-line .line-to-right1{	left: 90px;	}
-.middle-recodeContent .box-line .line-to-right2{	left: 180px;	}
-.middle-recodeContent .box-line .line-to-right3{	left: 270px;	}
-.middle-recodeContent .box-line .line-to-right4{	left: 360px;	}
-.middle-recodeContent .box-line .line-to-right5{	left: 450px;	}
-.middle-recodeContent .box-line .line-to-right6{	left: 540px;	}
-.middle-recodeContent .box-line .line-to-right7{	left: 630px;	}
-.middle-recodeContent .box-line .line-to-right8{	left: 720px;	}
-.middle-recodeContent .box-line .line-to-right9{	left: 810px;	}
-
-.middle-recodeTitle{
-	height: 30px; line-height: 35px; font-size: 12px;
-	color: gray;
-}
-.middle-recodeTitle div{
-	float: left; margin-left: 18px;
-}
-.middle-recodeTitle div:nth-child(2){	margin-left: 40px;	}
-.middle-recodeTitle div:nth-child(3){	margin-left: 44px;	}
-.middle-recodeTitle div:nth-child(4){	margin-left: 45px;	}
-.middle-recodeTitle div:nth-child(5){	margin-left: 52px;	}
-.middle-recodeTitle div:nth-child(6){	margin-left: 49px;	}
-.middle-recodeTitle div:nth-child(7){	margin-left: 50px;	}
-.middle-recodeTitle div:nth-child(8){	margin-left: 50px;	}
-.middle-recodeTitle div:nth-child(9){	margin-left: 48px;	}
-.middle-recodeTitle div:nth-child(10){	margin-left: 50px;	}
-.middle-recodeTitle div:nth-child(11){	margin-left: 48px;	}
-.middle-recodeTitle div:nth-child(12){	margin-left: 50px;	}
-.middle-recodeTitle div:nth-child(13){	margin-left: 32px;	}
-.middle-recodeTitle div:nth-child(14){	margin-left: 6px;	}
-.middle-recodeTitle div:nth-child(15){	margin-left: 6px;	}
-.middle-recodeTitle div:nth-child(16){	margin-left: 5px;	}
-.middle-recodeTitle div:nth-child(17){	margin-left: 5px;	}
-
-.box-middle .middle-recode-board{
-	background-color: #f4f4f4; margin-left: 8px;
-}
-.box-middle .middle-recode-board [aria-selected=false]{
-	display: none;
-}
-.box-middle .middle-recode-board .player{
-	margin: 5px 0;
-}
-.box-middle .middle-recode-board .player input{
-	text-align: center;
-}
-.box-middle .tbl-addPlayer{
-	padding: 20px 5px 50px 10px
-}
-
-.middle-footer .btn-save{
-	float: right; width: 100px; height: 37px; 
-	margin: 10px 75px; 
-}
 
