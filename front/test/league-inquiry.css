@@ -21,27 +21,27 @@ li {	list-style: none;}
 
 /* 지역 선택 */
 .box-main .main-top-region{
-    width: 950px; height: 40px;
+    width: 1050px; height: 40px;
 }
 .list-region{
     height: 40px; line-height: 40px; 
-    border-top: 2px solid #747474; border-bottom: 1px solid #747474;
+    border-top: 2px solid #747474; 
 }
 .item-region{
-    float: left; width: 5.7%; text-align: center;
-    border-right: 1px solid #747474;
+    float: left; width: 5.8%; text-align: center;
+    border-right: 1px solid #747474; border-bottom: 1px solid #747474;
 }
 .item-region>a{
     font-size: 13px;
 }
 .item-region:first-child{
-    width: 6.9%;  border-left: 1px solid #747474;
+    width: 7.2%;  border-left: 1px solid #747474;
 }
 
 
 /* 리그 리스트 */
 .container-league{
-    width: 950px; 
+    width: 1050px; 
     padding-bottom: 30px;
 }
 .container-league .list-league{
@@ -49,7 +49,7 @@ li {	list-style: none;}
 }
 .item-league{
     width: 400px;  border: 1px solid #000;
-    border-radius: 10px; display: inline-block; margin: 10px 35px 10px;
+    border-radius: 10px; display: inline-block; margin: 10px 60px 10px;
 }
 
 .item-league-logo{
