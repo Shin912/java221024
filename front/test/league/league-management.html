@@ -93,12 +93,12 @@
 							<button type="" class="btn btn-success">완납</button>
 						</td>
 						<td>
-							<select>
-								<option selected value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-							</select>
+							<section class="selectbox" data-role="selectbox">
+								<ul class="selectbox-option hide">
+									<li><button type="button" class="option-btn">대기</button></li>
+									<li><button type="button" class="option-btn">취소</button></li>
+									<li><button type="button" class="option-btn">승인</button></li>
+								</ul>
 						</td>
 					</tr>
 					<tr>
@@ -113,10 +113,9 @@
 						</td>
 						<td>
 							<select>
-								<option selected value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
+								<option selected value="0">대기</option>
+								<option value="1">취소</option>
+								<option value="2">승인</option>
 							</select>
 						</td>
 					</tr>
@@ -132,10 +131,9 @@
 						</td>
 						<td>
 							<select>
-								<option selected value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
+								<option selected value="0">대기</option>
+								<option value="1">취소</option>
+								<option value="2">승인</option>
 							</select>
 						</td>
 					</tr>
@@ -151,10 +149,9 @@
 						</td>
 						<td>
 							<select>
-								<option selected value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
+								<option selected value="0">대기</option>
+								<option value="1">취소</option>
+								<option value="2">승인</option>
 							</select>
 						</td>
 					</tr>
@@ -170,10 +167,9 @@
 						</td>
 						<td>
 							<select>
-								<option selected value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
+								<option selected value="0">대기</option>
+								<option value="1">취소</option>
+								<option value="2">승인</option>
 							</select>
 						</td>
 					</tr>
@@ -189,10 +185,9 @@
 						</td>
 						<td>
 							<select>
-								<option selected value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
+								<option selected value="0">대기</option>
+								<option value="1">취소</option>
+								<option value="2">승인</option>
 							</select>
 						</td>
 					</tr>
@@ -202,7 +197,6 @@
 		</div>
 
 		<script>
-			alert('클릭');
 			$('.nav-link').click((e)=>e.preventDefault());
 			$('.nav-link').click(function(){
 

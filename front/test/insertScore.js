@@ -28,6 +28,7 @@ $(function(){
     var countHit=0;
     var countRbi=0;
     var countTheft=0;
+    
     $('.btn-pa').click(function(){
         countPa=countPa+1;
         $(this).find('.result-pa').innerText=countPa;

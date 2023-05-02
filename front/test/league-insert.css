@@ -1,0 +1,25 @@
+* {	margin: 0;	padding: 0;}
+a {	color: inherit;
+	text-decoration: none;
+	cursor: pointer;}
+
+h2{
+    text-align: center;
+}
+.container{
+    margin-top: 100px; margin-left: 300px;
+    background-color: antiquewhite;
+    width: 900px;
+}
+
+.form-group .league-logo{
+    width: 400px; margin-top: 10px;
+}
+
+.form-group .league-name{
+    width: 400px;
+}
+.form-group .league-introduce{
+    width: 400px;   height: 300px;
+    text-align: top;
+}
