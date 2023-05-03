@@ -25,3 +25,8 @@ hs_err_pid*
 .classpath
 .project
 java_Lss1/.gitignore
+spring Project/spring/src/main/webapp/META-INF/maven/kr.kh/spring/
+
+spring Project/springtest/src/main/webapp/META-INF/maven/kr.kh/test/
+
+*.properties
