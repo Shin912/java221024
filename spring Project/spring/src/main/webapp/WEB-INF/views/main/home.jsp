@@ -9,5 +9,18 @@
 	<a href="/spring/ex3">데이터 전송 예제3</a> <br>
 	<a href="/spring/ex4">데이터 전송 예제4</a> <br>
 	<a href="/spring/ex5?num=2022123001">DB 연결 해제5</a> <br>
+	<button id="api-btn">조회</button>
+	<div id="result"></div>
+	<script type="text/javascript">
+		${'api-btn'}.click(function(){
+			$.ajax({
+				url : "https://apis.data.go.kr/1741000/TsunamiShelter3/getTsunamiShelter1List?serviceKey=WD2vUw0n%2BOo2gRYBWfPja6kbXBNsRSjfjwEFvWp3cLD2i304vJVl0dfw5%2BizAV6n55dcWeEJfZFfaQgC5oeNXw%3D%3D&pageNo=1&numOfRows=10&type=json",
+				dataType : 'json',
+				success : function(data){
+					console.log(data);
+				}
+			})
+		});
+	</script>
 	
 </div>
