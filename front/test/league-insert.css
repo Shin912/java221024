@@ -9,7 +9,7 @@ h2{
 .container{
     margin-top: 100px; margin-left: 300px;
     background-color: antiquewhite;
-    width: 900px;
+    width: 900px; border-radius: 15px;
 }
 
 .form-group .league-logo{
@@ -17,9 +17,10 @@ h2{
 }
 
 .form-group .league-name{
-    width: 400px;
+    width: 400px; float: left;
 }
 .form-group .league-introduce{
     width: 400px;   height: 300px;
-    text-align: top;
+    text-align: top; display: inline-block; 
+    vertical-align: top;
 }
