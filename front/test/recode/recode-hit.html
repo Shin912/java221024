@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="recode-hit.css">
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -132,7 +132,7 @@
 					<td>1</td>
 					<td>이정후(22)</td>
 					<td>두산공작기계야구단</td>
-					<td>0.364</td>
+					<td batAve(1,1,0,0,5)>document.write()</td>
 					<td>10</td>
 					<td>25</td>
 					<td>22</td>
@@ -156,5 +156,12 @@
 
 	</div>
 
+	<script>
+		let AveRage = 0;
+		function batAve( a, b, c, d, e){
+			AveRage = ( a + b + c + d) / e;
+			return AveRage;
+		}
+	</script>
 </body>
 </html>
