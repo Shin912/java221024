@@ -52,7 +52,6 @@
 		<tfoot>
 			<tr>
 				<form action="<c:url value='/admin/board/type/insert'></c:url>" method="post">
-					<td class="form-group"></td>
 					<td class="form-group">
 						<select class="form-control" name="bt_type">
 							<option>일반</option>
